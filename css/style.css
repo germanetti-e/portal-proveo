@@ -366,3 +366,113 @@ section{
     line-height:1.6;
 
 }
+/* =======================================================
+   CATEGORÍAS
+======================================================= */
+
+.categories{
+
+    padding-top:10px;
+    padding-bottom:35px;
+
+}
+
+.categories h2{
+
+    margin-bottom:18px;
+
+}
+
+.categories-grid{
+
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+
+}
+
+.category-card{
+
+    background:var(--white);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    transition:.25s;
+
+    border:1px solid transparent;
+
+}
+
+.category-card:hover{
+
+    transform:translateY(-2px);
+
+    border-color:var(--secondary);
+
+}
+
+.category-card:active{
+
+    transform:scale(.98);
+
+}
+
+.category-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:14px;
+
+    background:#F7F8FA;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.category-icon i{
+
+    color:var(--primary);
+
+    font-size:22px;
+
+}
+
+.category-card span{
+
+    flex:1;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:var(--primary);
+
+    line-height:1.35;
+
+}
+
+.category-card .fa-chevron-right{
+
+    color:#B7B7B7;
+
+    font-size:15px;
+
+}
