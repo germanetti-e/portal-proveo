@@ -1,0 +1,171 @@
+/* =======================================================
+   PROVEO
+   Portal de Abastecimiento Estratégico
+   style.css
+======================================================= */
+
+
+/* ==========================
+   VARIABLES
+========================== */
+
+:root{
+
+    --primary:#0B3558;
+    --secondary:#D4AF37;
+    --background:#F7F8FA;
+    --white:#FFFFFF;
+    --text:#222222;
+    --text-light:#666666;
+    --border:#E5E7EB;
+
+    --radius:18px;
+
+    --shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    background:var(--background);
+
+    font-family:'Montserrat',sans-serif;
+
+    color:var(--text);
+
+}
+
+
+/* ==========================
+   CONTENEDOR PRINCIPAL
+========================== */
+
+.app{
+
+    max-width:430px;
+
+    margin:auto;
+
+    min-height:100vh;
+
+    background:var(--white);
+
+    position:relative;
+
+    padding-bottom:95px;
+
+}
+
+
+/* ==========================
+   LINKS
+========================== */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
+/* ==========================
+   BOTONES
+========================== */
+
+button{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+
+
+/* ==========================
+   IMÁGENES
+========================== */
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+
+/* ==========================
+   TITULOS
+========================== */
+
+h1{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    line-height:1.25;
+
+    color:var(--primary);
+
+}
+
+
+h2{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+
+p{
+
+    line-height:1.6;
+
+    color:var(--text-light);
+
+}
+
+
+/* ==========================
+   ESPACIADOS
+========================== */
+
+section{
+
+    padding-left:20px;
+
+    padding-right:20px;
+
+}
