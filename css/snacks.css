@@ -110,50 +110,81 @@
 
     padding:0 20px 35px;
 
-}
+/* =======================================================
+   TARJETA DE PRODUCTO
+======================================================= */
+
 .product-card{
-...
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E8ECF2;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+    transition:.25s;
+
 }
 
 .product-card:hover{
-...
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 24px rgba(0,0,0,.08);
+
 }
 
 .product-image{
-...
+
+    width:110px;
+
+    min-width:110px;
+
+    flex-shrink:0;
+
 }
 
 .product-image img{
-...
+
+    width:100%;
+
+    display:block;
+
+    object-fit:contain;
+
 }
 
 .product-info{
-...
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
 }
 
 .product-info h2{
-...
-}
 
-.product-price{
-...
-}
+    font-size:18px;
 
-.product-unit{
-...
-}
+    font-weight:700;
 
-.product-minimum{
-...
-}
+    color:var(--primary);
 
-.add-button{
-...
-}
+    margin-bottom:12px;
 
-.add-button:hover{
-...
-}
+    line-height:1.3;
 
 }
 /* =======================================================
