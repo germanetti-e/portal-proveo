@@ -1,0 +1,113 @@
+/* =======================================================
+   SNACKS
+   Pantalla de categoría
+======================================================= */
+
+
+/* =======================================================
+   VOLVER
+======================================================= */
+
+.back-link{
+
+    padding:18px 20px 10px;
+
+}
+
+.back-link a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--primary);
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+/* =======================================================
+   CABECERA CATEGORÍA
+======================================================= */
+
+.category-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:10px 20px 25px;
+
+}
+
+.category-icon-large{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:18px;
+
+    background:#F4F6F8;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.category-icon-large i{
+
+    font-size:28px;
+
+    color:var(--primary);
+
+}
+
+.category-header h1{
+
+    margin-bottom:6px;
+
+    font-size:26px;
+
+    color:var(--primary);
+
+}
+
+.category-header p{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+    line-height:1.5;
+
+}
+
+
+/* =======================================================
+   CONTENEDOR PRODUCTOS
+======================================================= */
+
+.products{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:0 20px 35px;
+
+}
