@@ -566,13 +566,13 @@ section{
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    gap:13px;
+    justify-content:flex-start;
 
-    text-align:center;
+    padding:0 22px;
+
+    gap:12px;
 
     font-size:15px;
 
@@ -592,7 +592,7 @@ section{
 
     font-size:35px;
 
-    margin-left:6px;
+    flex-shrink:0;
 
 }
 
