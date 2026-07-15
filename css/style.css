@@ -476,50 +476,137 @@ section{
     font-size:15px;
 
 }
-<!-- ========================= -->
-<!-- CONTACTO WHATSAPP -->
-<!-- ========================= -->
+/* =======================================================
+   CONTACTO WHATSAPP
+======================================================= */
 
-<section class="support">
+.support{
 
-    <div class="support-card">
+    padding-bottom:35px;
 
-        <div class="support-left">
+}
 
-            <div class="support-text">
+.support-card{
 
-                <h3>¿Necesitas algo más?</h3>
+    background:#FFFFFF;
 
-                <p>Estamos aquí para ayudarte.</p>
+    border:1px solid #E8ECF2;
 
-                <p>Escríbenos por WhatsApp.</p>
+    border-radius:20px;
 
-            </div>
+    padding:22px;
 
-        </div>
+    display:grid;
 
-        <div class="support-right">
+    grid-template-columns:55% 45%;
 
-            <a
-                href="https://wa.me/573012754358"
-                target="_blank"
-                class="support-button">
+    gap:20px;
 
-                Consultar por WhatsApp
+    align-items:center;
 
-            </a>
+    box-shadow:var(--shadow);
 
-            <p class="support-note">
+}
 
-                Este canal es únicamente para resolver dudas sobre productos o disponibilidad.
+.support-left{
 
-            </p>
+    display:flex;
 
-        </div>
+    align-items:center;
 
-    </div>
+}
 
-</section>
+.support-text h3{
+
+    margin:0 0 10px 0;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    line-height:1.2;
+
+}
+
+.support-text p{
+
+    margin:4px 0;
+
+    font-size:16px;
+
+    color:var(--text-light);
+
+    line-height:1.45;
+
+}
+
+.support-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:14px;
+
+}
+
+.support-button{
+
+    background:#082845;
+
+    color:#FFFFFF;
+
+    height:56px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.support-button:hover{
+
+    background:#0B3558;
+
+}
+
+.support-note{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+    line-height:1.45;
+
+}
+
+@media(max-width:768px){
+
+    .support-card{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
+}
 
 
 
