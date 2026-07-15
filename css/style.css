@@ -476,165 +476,24 @@ section{
     font-size:15px;
 
 }
-/* =======================================================
-   CONTACTO WHATSAPP
-======================================================= */
+<!-- ========================= -->
+<!-- CONTACTO WHATSAPP -->
+<!-- ========================= -->
 
-.support{
+<section class="support">
 
-    padding-bottom:35px;
+    <a
+        href="https://wa.me/573012754358"
+        target="_blank"
+        class="support-button-full">
 
-}
+        <i class="fa-brands fa-whatsapp"></i>
 
-.support-card{
+        ¿Necesitas algo más? Consulta por WhatsApp
 
-    background:#FFFFFF;
-    border:1px solid #E8ECF2;
-    border-radius:22px;
-    padding:22px;
+    </a>
 
-    display:grid;
-    grid-template-columns:58% 42%;
-    gap:24px;
-
-    align-items:center;
-
-    box-shadow:var(--shadow);
-
-}
-
-.support-left{
-
-    display:flex;
-    align-items:flex-start;
-    gap:18px;
-
-}
-
-.support-icon{
-
-    width:50px;
-
-    height:50px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:var(--primary);
-
-    font-size:40px;
-
-    flex-shrink:0;
-
-}
-
-.support-text h3{
-
-    margin:0 0 10px 0;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    color:var(--primary);
-
-}
-
-.support-text p{
-
-    margin:4px 0;
-
-    font-size:15px;
-
-    line-height:1.45;
-
-    color:var(--text-light);
-
-}
-
-
-
-.support-right{
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:16px;
-
-}
-
-
-
-.support-button{
-
-    width:100%;
-
-    height:58px;
-
-    background:var(--primary);
-
-    color:#FFFFFF;
-
-    border-radius:14px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:10px;
-
-    font-size:18px;
-
-    font-weight:600;
-
-}
-
-
-
-.support-button:hover{
-
-    background:#082845;
-
-}
-
-.support-button i{
-
-    font-size:14px;
-
-}
-
-.support-note{
-
-    margin-top:14px;
-
-    font-size:15px;
-
-    color:var(--text-light);
-
-    line-height:1.45;
-
-}
-
-@media(max-width:768px){
-
-    .support-card{
-
-        flex-direction:column;
-
-    }
-
-    .support-right{
-
-        width:100%;
-
-    }
-
-}
+</section>
 
 
 
