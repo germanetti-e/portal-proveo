@@ -156,3 +156,79 @@
 }
 
 }
+/* =======================================================
+   INFORMACIÓN DEL PRODUCTO
+======================================================= */
+
+.product-price{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    min-height:28px;
+
+    margin-bottom:8px;
+
+}
+
+.product-unit{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+    min-height:20px;
+
+    margin-bottom:6px;
+
+}
+
+.product-minimum{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+    min-height:20px;
+
+    margin-bottom:16px;
+
+}
+
+
+/* =======================================================
+   BOTÓN AGREGAR
+======================================================= */
+
+.add-button{
+
+    width:140px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#0B3558;
+
+    color:#FFFFFF;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.add-button:hover{
+
+    background:#082845;
+
+}
