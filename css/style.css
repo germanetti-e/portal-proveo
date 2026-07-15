@@ -570,6 +570,8 @@ section{
 
     align-items:center;
 
+    gap:10px;
+
     text-align:center;
 
     font-size:17px;
@@ -577,6 +579,18 @@ section{
     font-weight:600;
 
     transition:.25s;
+
+}
+
+.support-button:hover{
+
+    background:#0B3558;
+
+}
+
+.support-button i{
+
+    font-size:20px;
 
 }
 
