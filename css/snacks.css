@@ -146,9 +146,15 @@
 
 .product-image{
 
-    width:110px;
+    width:120px;
 
-    min-width:110px;
+    min-width:120px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     flex-shrink:0;
 
@@ -158,9 +164,13 @@
 
     width:100%;
 
-    display:block;
+    max-height:140px;
 
     object-fit:contain;
+
+    display:block;
+
+}
 
 }
 
