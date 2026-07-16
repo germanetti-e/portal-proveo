@@ -11,7 +11,9 @@
         content="width=device-width, initial-scale=1.0">
 
     <title>
+
         Mi abastecimiento | Proveo
+
     </title>
 
     <meta
@@ -22,8 +24,13 @@
         name="theme-color"
         content="#0B3558">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cart.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="css/cart.css">
 
     <link
         rel="preconnect"
@@ -48,17 +55,98 @@
 
 <div class="app">
 
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
 <header class="header">
+
+    <div class="header-top">
+
+        <button class="icon-button">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <a href="index.html">
+
+            <img
+                src="assets/logo/logo_proveo.png"
+                alt="Proveo"
+                class="logo">
+
+        </a>
+
+        <a
+            href="cart.html"
+            class="icon-button">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+        </a>
+
+    </div>
 
 </header>
 
-<section class="back-link">
+<!-- ========================= -->
+<!-- BUSCADOR -->
+<!-- ========================= -->
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            placeholder="¿Qué necesitas para tu negocio?">
+
+    </div>
 
 </section>
+
+<!-- ========================= -->
+<!-- VOLVER -->
+<!-- ========================= -->
+
+<section class="back-link">
+
+    <a href="index.html">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Continuar comprando
+
+    </a>
+
+</section>
+
+<!-- ========================= -->
+<!-- TÍTULO -->
+<!-- ========================= -->
 
 <section class="cart-status">
 
+    <h1>
+
+        Mi abastecimiento
+
+    </h1>
+
+    <p>
+
+        Revisa tu pedido antes de solicitar la cotización.
+
+    </p>
+
 </section>
+
+<!-- ========================= -->
+<!-- PRODUCTOS -->
+<!-- ========================= -->
 
 <section
     class="cart-products"
@@ -66,21 +154,132 @@
 
 </section>
 
+<!-- ========================= -->
+<!-- RESUMEN -->
+<!-- ========================= -->
+
 <section class="cart-summary">
 
+    <div class="summary-row">
+
+        <span>
+
+            Subtotal
+
+        </span>
+
+        <strong id="subtotal">
+
+            $0
+
+        </strong>
+
+    </div>
+
 </section>
+
+<!-- ========================= -->
+<!-- INFORMACIÓN -->
+<!-- ========================= -->
 
 <section class="cart-info">
 
+    <p>
+
+        • Todos los precios publicados son antes de IVA.
+
+    </p>
+
+    <p>
+
+        • El IVA será calculado al momento de confirmar la solicitud.
+
+    </p>
+
+    <p>
+
+        • La disponibilidad será validada por un asesor comercial.
+
+    </p>
+
 </section>
+
+<!-- ========================= -->
+<!-- BOTÓN -->
+<!-- ========================= -->
 
 <section class="cart-action">
 
+    <button
+        class="checkout-button"
+        id="checkout-button">
+
+        Solicitar abastecimiento
+
+    </button>
+
 </section>
+
+<!-- ========================= -->
+<!-- WHATSAPP -->
+<!-- ========================= -->
+
+<a
+    href="https://wa.me/573012754358"
+    class="floating-whatsapp"
+    aria-label="¿Necesitas ayuda?">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<!-- ========================= -->
+<!-- MENÚ -->
+<!-- ========================= -->
 
 <nav class="bottom-nav">
 
+    <a href="index.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+
+            Inicio
+
+        </span>
+
+    </a>
+
+    <a
+        href="cart.html"
+        class="active">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span>
+
+            Mi abastecimiento
+
+        </span>
+
+    </a>
+
+    <a href="account.html">
+
+        <i class="fa-solid fa-user"></i>
+
+        <span>
+
+            Mi cuenta
+
+        </span>
+
+    </a>
+
 </nav>
+
+</div>
 
 <script src="js/cart.js"></script>
 
