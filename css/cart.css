@@ -1,1 +1,204 @@
+/* =======================================================
+   CART
+   Mi abastecimiento
+======================================================= */
 
+
+/* =======================================================
+   VOLVER
+======================================================= */
+
+.back-link{
+
+    padding:18px 20px 10px;
+
+}
+
+.back-link a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--primary);
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+/* =======================================================
+   CABECERA
+======================================================= */
+
+.cart-status{
+
+    padding:10px 20px 25px;
+
+}
+
+.cart-status h1{
+
+    font-size:28px;
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
+}
+
+.cart-status p{
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+    font-size:15px;
+
+}
+
+
+/* =======================================================
+   PRODUCTOS
+======================================================= */
+
+.cart-products{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:0 20px 20px;
+
+}
+
+
+/* =======================================================
+   TARJETA RESUMEN
+======================================================= */
+
+.cart-summary{
+
+    margin:0 20px;
+
+    background:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+    border:1px solid #ECECEC;
+
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.summary-row span{
+
+    font-size:16px;
+
+    color:var(--text-light);
+
+}
+
+.summary-row strong{
+
+    font-size:28px;
+
+    color:var(--primary);
+
+}
+
+
+/* =======================================================
+   INFORMACIÓN
+======================================================= */
+
+.cart-info{
+
+    margin:22px 20px;
+
+    background:#F7F9FB;
+
+    border-radius:18px;
+
+    padding:20px;
+
+}
+
+.cart-info p{
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+    font-size:14px;
+
+    margin-bottom:10px;
+
+}
+
+.cart-info p:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+/* =======================================================
+   BOTÓN
+======================================================= */
+
+.cart-action{
+
+    padding:0 20px 120px;
+
+}
+
+.checkout-button{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#0B3558;
+
+    color:#FFFFFF;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.checkout-button:hover{
+
+    background:#082845;
+
+}
