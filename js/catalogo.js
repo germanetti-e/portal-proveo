@@ -7,15 +7,16 @@
    CONFIGURACIÓN
 ========================== */
 
-const API_URL = "TU_URL_DEL_APPS_SCRIPT";
+const API_URL = "https://script.google.com/macros/s/AKfycbxEoH-PFVJTjR0tdug3EedfioGxxAm1a-Ed1SU4na5qNiuLe_QFl1qaOL_an-C7eXF8bg/exec";
+
 
 /* ==========================
    CARGAR CATÁLOGO
 ========================== */
 
-async function cargarCatalogo(){
+async function cargarCatalogo() {
 
-    try{
+    try {
 
         const respuesta = await fetch(API_URL);
 
@@ -23,27 +24,26 @@ async function cargarCatalogo(){
 
         mostrarProductos(productos);
 
-    }
+    } catch (error) {
 
-    catch(error){
-
-        console.error(error);
+        console.error("Error cargando catálogo:", error);
 
     }
 
 }
 
+
 /* ==========================
    MOSTRAR PRODUCTOS
 ========================== */
 
-function mostrarProductos(productos){
+function mostrarProductos(productos) {
 
     const contenedor = document.getElementById("products");
 
     contenedor.innerHTML = "";
 
-    productos.forEach(producto=>{
+    productos.forEach(producto => {
 
         contenedor.innerHTML += crearTarjeta(producto);
 
@@ -51,59 +51,57 @@ function mostrarProductos(productos){
 
 }
 
+
 /* ==========================
    CREAR TARJETA
 ========================== */
 
-function crearTarjeta(producto){
+function crearTarjeta(producto) {
 
     return `
 
-<article class="product-card">
+    <article class="product-card">
 
-    <div class="product-image">
+        <div class="product-image">
 
-        <img src="assets/saboriemos_pets/${producto.imagen}.png">
+            <img
+                src="assets/saboriemos_pets/${producto.imagen}.png"
+                alt="${producto.nombre}">
 
-    </div>
+        </div>
 
-    <div class="product-info">
+        <div class="product-info">
 
-        <h2>${producto.nombre}</h2>
+            <h2>${producto.nombre}</h2>
 
-        <p class="product-price">
+            <p class="product-price">
+                $ ${Number(producto.precio_sin_iva).toLocaleString("es-CO")}
+            </p>
 
-            $ ${Number(producto.precio_sin_iva).toLocaleString("es-CO")}
+            <p class="product-unit">
+                Unidad de venta: ${producto.unidad_de_venta}
+            </p>
 
-        </p>
+            <p class="product-minimum">
+                Pedido mínimo: ${producto.pedido_minimo}
+            </p>
 
-        <p class="product-unit">
+            <button
+                class="add-button"
+                data-producto="${producto.codigo}">
 
-            Unidad de venta: ${producto.unidad_de_venta}
+                Agregar
 
-        </p>
+            </button>
 
-        <p class="product-minimum">
+        </div>
 
-            Pedido mínimo: ${producto.pedido_minimo}
+    </article>
 
-        </p>
-
-        <button
-            class="add-button"
-            data-producto="${producto.codigo}">
-
-            Agregar
-
-        </button>
-
-    </div>
-
-</article>
-
-`;
+    `;
 
 }
+
 
 /* ==========================
    INICIAR
