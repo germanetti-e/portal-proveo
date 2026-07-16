@@ -77,7 +77,7 @@
 
 .status-title h1{
 
-    font-size:24px;
+    font-size:20px;
 
     color:var(--primary);
 
@@ -95,17 +95,17 @@
 
 }
 
-.status-subtotal-value{
+..status-subtotal-value{
 
     text-align:center;
 
-    font-size:42px;
+    font-size:34px;
 
     font-weight:800;
 
     color:var(--primary);
 
-    margin:8px 0 30px;
+    margin:6px 0 24px;
 
 }
 
