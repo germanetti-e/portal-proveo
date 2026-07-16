@@ -7,29 +7,101 @@
    CONFIGURACIÓN
 ========================== */
 
-const API_URL = "https://script.google.com/macros/s/AKfycbxEoH-PFVJTjR0tdug3EedfioGxxAm1a-Ed1SU4na5qNiuLe_QFl1qaOL_an-C7eXF8bg/exec";
+const API_URL = "TU_URL_DEL_APPS_SCRIPT";
 
 /* ==========================
-   LEER CATÁLOGO
+   CARGAR CATÁLOGO
 ========================== */
 
-async function cargarCatalogo() {
+async function cargarCatalogo(){
 
-    try {
+    try{
 
         const respuesta = await fetch(API_URL);
 
         const productos = await respuesta.json();
 
-        console.log(productos);
+        mostrarProductos(productos);
 
     }
 
     catch(error){
 
-        console.error("Error cargando catálogo:", error);
+        console.error(error);
 
     }
+
+}
+
+/* ==========================
+   MOSTRAR PRODUCTOS
+========================== */
+
+function mostrarProductos(productos){
+
+    const contenedor = document.getElementById("products");
+
+    contenedor.innerHTML = "";
+
+    productos.forEach(producto=>{
+
+        contenedor.innerHTML += crearTarjeta(producto);
+
+    });
+
+}
+
+/* ==========================
+   CREAR TARJETA
+========================== */
+
+function crearTarjeta(producto){
+
+    return `
+
+<article class="product-card">
+
+    <div class="product-image">
+
+        <img src="assets/saboriemos_pets/${producto.imagen}.png">
+
+    </div>
+
+    <div class="product-info">
+
+        <h2>${producto.nombre}</h2>
+
+        <p class="product-price">
+
+            $ ${Number(producto.precio_sin_iva).toLocaleString("es-CO")}
+
+        </p>
+
+        <p class="product-unit">
+
+            Unidad de venta: ${producto.unidad_de_venta}
+
+        </p>
+
+        <p class="product-minimum">
+
+            Pedido mínimo: ${producto.pedido_minimo}
+
+        </p>
+
+        <button
+            class="add-button"
+            data-producto="${producto.codigo}">
+
+            Agregar
+
+        </button>
+
+    </div>
+
+</article>
+
+`;
 
 }
 
