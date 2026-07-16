@@ -419,3 +419,192 @@
     background:#082845;
 
 }
+/* =======================================================
+   PRODUCTOS SELECCIONADOS
+======================================================= */
+
+.cart-products{
+
+    padding:0 20px;
+
+}
+
+.cart-products h2{
+
+    font-size:24px;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.cart-product{
+
+    background:#FFFFFF;
+
+    border:1px solid #ECECEC;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+    margin-bottom:18px;
+
+}
+
+.cart-product-image{
+
+    width:90px;
+
+    flex-shrink:0;
+
+}
+
+.cart-product-image img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.cart-product-info{
+
+    flex:1;
+
+}
+
+.cart-product-info h3{
+
+    font-size:17px;
+
+    color:var(--primary);
+
+    line-height:1.4;
+
+    margin-bottom:10px;
+
+}
+
+.cart-product-price{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:4px;
+
+}
+
+.cart-product-tax{
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+    margin-bottom:18px;
+
+}
+
+
+/* =======================================================
+   CANTIDAD
+======================================================= */
+
+.cart-quantity{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.cart-quantity button{
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#F1F4F7;
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.cart-quantity button:hover{
+
+    background:#E2E8EE;
+
+}
+
+.cart-quantity span{
+
+    min-width:20px;
+
+    text-align:center;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+
+/* =======================================================
+   ELIMINAR
+======================================================= */
+
+.delete-product{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#FFF3F3;
+
+    color:#D63A3A;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    flex-shrink:0;
+
+}
+
+.delete-product:hover{
+
+    background:#FFE5E5;
+
+}
