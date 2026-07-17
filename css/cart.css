@@ -608,3 +608,38 @@
     background:#FFE5E5;
 
 }
+/* =======================================================
+   RESUMEN DEL PEDIDO
+======================================================= */
+
+.cart-summary{
+
+    margin:32px 20px;
+
+    text-align:center;
+
+}
+
+.summary-label{
+
+    font-size:16px;
+
+    color:var(--text-light);
+
+    margin-bottom:8px;
+
+}
+
+.summary-total{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+    line-height:1;
+
+    margin-bottom:24px;
+
+}
