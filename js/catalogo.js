@@ -108,3 +108,20 @@ function crearTarjeta(producto) {
 ========================== */
 
 cargarCatalogo();
+/* ==========================
+   BOTONES AGREGAR
+========================== */
+
+const botonesAgregar = document.querySelectorAll(".add-button");
+
+botonesAgregar.forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        const producto = boton.dataset.producto;
+
+        console.log(producto);
+
+    });
+
+});
