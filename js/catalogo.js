@@ -27,11 +27,13 @@ async function cargarCatalogo() {
 
         catalogo = await respuesta.json();
 
-        mostrarProductos(catalogo);
+        if (document.getElementById("products")) {
 
-    }
+            mostrarProductos(catalogo);
 
-    catch(error){
+        }
+
+    } catch(error){
 
         console.error("Error cargando catálogo:", error);
 
