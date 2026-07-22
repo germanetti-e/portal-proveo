@@ -135,4 +135,8 @@ async function iniciarCarrito(){
 
 }
 
+console.log("LocalStorage antes de iniciar:");
+
+console.log(localStorage.getItem("carrito"));
+
 iniciarCarrito();
