@@ -57,9 +57,15 @@ function agregarProducto(nombreProducto){
 
 function guardarCarrito(){
 
+    console.log("Guardando carrito...");
+
     localStorage.setItem(
         "carrito",
         JSON.stringify(carrito)
+    );
+
+    console.log(
+        localStorage.getItem("carrito")
     );
 
 }
