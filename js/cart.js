@@ -20,7 +20,13 @@ function agregarProducto(nombreProducto){
 
     const producto = catalogo.find(item => item.imagen === nombreProducto);
 
-    console.log(producto);
+    if(!producto){
+        return;
+    }
+
+    carrito.push(producto);
+
+    console.log(carrito);
 
 }
 
