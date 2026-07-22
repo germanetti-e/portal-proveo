@@ -115,6 +115,8 @@ function construirCarrito(){
 
     console.log(carritoCompleto);
 
+   actualizarPantalla(carritoCompleto);
+
 }
 
 /* ==========================
