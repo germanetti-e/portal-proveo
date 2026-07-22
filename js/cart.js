@@ -43,6 +43,8 @@ function agregarProducto(nombreProducto){
 
     }
 
-    console.log("Carrito actualizado:", carrito);
+    console.log(
+    JSON.parse(JSON.stringify(carrito))
+);
 
 }
