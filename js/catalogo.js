@@ -88,7 +88,7 @@ function crearTarjeta(producto) {
 
             <button
                 class="add-button"
-                data-producto="${producto.codigo}">
+                data-producto="${producto.imagen}">
 
                 Agregar
 
