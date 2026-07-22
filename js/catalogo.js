@@ -116,13 +116,17 @@ cargarCatalogo();
 
 function activarBotones() {
 
+    console.log("Activando botones...");
+
     const botones = document.querySelectorAll(".add-button");
+
+    console.log("Botones encontrados:", botones.length);
 
     botones.forEach(boton => {
 
         boton.addEventListener("click", () => {
 
-            console.log(boton.dataset.producto);
+            console.log("Click:", boton.dataset.producto);
 
         });
 
