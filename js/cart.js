@@ -88,3 +88,21 @@ function guardarCarrito(){
     );
 
 }
+
+/* ==========================
+   INICIALIZAR
+========================== */
+
+async function iniciarCarrito(){
+
+    await cargarCatalogo();
+
+    cargarCarrito();
+
+    console.log("Catálogo:", catalogo);
+
+    console.log("Carrito:", carrito);
+
+}
+
+iniciarCarrito();
