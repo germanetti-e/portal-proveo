@@ -126,7 +126,7 @@ function activarBotones() {
 
         boton.addEventListener("click", () => {
 
-            console.log("Click:", boton.dataset.producto);
+            agregarProducto(boton.dataset.producto);
 
         });
 
