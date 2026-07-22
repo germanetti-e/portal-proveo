@@ -48,3 +48,16 @@ function agregarProducto(nombreProducto){
 );
 
 }
+
+/* ==========================
+   LOCAL STORAGE
+========================== */
+
+function guardarCarrito(){
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
+
+}
