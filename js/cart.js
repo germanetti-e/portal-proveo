@@ -90,18 +90,48 @@ function guardarCarrito(){
 }
 
 /* ==========================
+   CONSTRUIR CARRITO
+========================== */
+
+function construirCarrito(){
+
+    const carritoCompleto = carrito.map(item => {
+
+        const producto = catalogo.find(
+            producto => producto.codigo == item.codigo
+        );
+
+        return {
+
+            ...producto,
+
+            cantidad: item.cantidad
+
+        };
+
+    });
+
+    console.log("Carrito completo:");
+
+    console.log(carritoCompleto);
+
+}
+
+/* ==========================
    INICIALIZAR
 ========================== */
 
 async function iniciarCarrito(){
 
-    await cargarCatalogo();
-
     cargarCarrito();
+
+    await cargarCatalogo();
 
     console.log("Catálogo:", catalogo);
 
     console.log("Carrito:", carrito);
+
+    construirCarrito();
 
 }
 
