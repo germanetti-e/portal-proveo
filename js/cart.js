@@ -8,7 +8,6 @@
    VARIABLES
 ========================== */
 
-let catalogo = [];
 
 let carrito = [];
 
