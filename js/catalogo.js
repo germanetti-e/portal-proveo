@@ -49,6 +49,8 @@ function mostrarProductos(productos) {
 
     });
 
+    activarBotones();
+
 }
 
 
