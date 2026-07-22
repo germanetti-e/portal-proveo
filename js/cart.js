@@ -18,14 +18,16 @@ let carrito = [];
 
 function agregarProducto(nombreProducto){
 
-    const producto = catalogo.find(item => item.imagen === nombreProducto);
+    const producto = catalogo.find(
+        item => item.imagen === nombreProducto
+    );
 
     if(!producto){
         return;
     }
 
     const productoExistente = carrito.find(
-        item => item.imagen === nombreProducto
+        item => item.codigo === producto.codigo
     );
 
     console.log("Producto encontrado:", productoExistente);
@@ -37,17 +39,17 @@ function agregarProducto(nombreProducto){
     }else{
 
         carrito.push({
-            ...producto,
+            codigo: producto.codigo,
             cantidad: 1
         });
 
     }
 
-   guardarCarrito();
-   
+    guardarCarrito();
+
     console.log(
-    JSON.parse(JSON.stringify(carrito))
-);
+        JSON.parse(JSON.stringify(carrito))
+    );
 
 }
 
