@@ -11,6 +11,23 @@
 
 let carrito = [];
 
+/* ==========================
+   CARGAR CARRITO
+========================== */
+
+function cargarCarrito(){
+
+    const carritoGuardado = localStorage.getItem("carrito");
+
+    if(carritoGuardado){
+
+        carrito = JSON.parse(carritoGuardado);
+
+    }
+
+    console.log("Carrito cargado:", carrito);
+
+}
 
 /* ==========================
    AGREGAR PRODUCTO
