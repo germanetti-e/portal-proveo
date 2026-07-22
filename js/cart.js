@@ -44,6 +44,7 @@ function agregarProducto(nombreProducto){
     }
 
    guardarCarrito();
+   
     console.log(
     JSON.parse(JSON.stringify(carrito))
 );
