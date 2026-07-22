@@ -64,7 +64,9 @@ async function cargarCatalogo(){
    AGREGAR PRODUCTO
 ========================== */
 
-function agregarProducto(codigo){
+function agregarProducto(nombreProducto){
+
+    console.log("Producto recibido:", nombreProducto);
 
 }
 
