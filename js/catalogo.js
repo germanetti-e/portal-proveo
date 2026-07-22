@@ -114,16 +114,18 @@ cargarCatalogo();
    BOTONES AGREGAR
 ========================== */
 
-const botonesAgregar = document.querySelectorAll(".add-button");
+function activarBotones() {
 
-botonesAgregar.forEach(boton => {
+    const botones = document.querySelectorAll(".add-button");
 
-    boton.addEventListener("click", () => {
+    botones.forEach(boton => {
 
-        const producto = boton.dataset.producto;
+        boton.addEventListener("click", () => {
 
-        console.log(producto);
+            console.log(boton.dataset.producto);
+
+        });
 
     });
 
-});
+}
