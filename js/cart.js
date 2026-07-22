@@ -18,10 +18,11 @@ let carrito = [];
 
 function agregarProducto(nombreProducto){
 
-    console.log("Producto recibido:", nombreProducto);
+    const producto = catalogo.find(item => item.imagen === nombreProducto);
+
+    console.log(producto);
 
 }
-
 
 /* ==========================
    ELIMINAR PRODUCTO
