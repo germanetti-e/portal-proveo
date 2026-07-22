@@ -24,57 +24,23 @@ function agregarProducto(nombreProducto){
         return;
     }
 
-    carrito.push(producto);
+    const productoExistente = carrito.find(
+        item => item.imagen === nombreProducto
+    );
+
+    if(productoExistente){
+
+        productoExistente.cantidad++;
+
+    }else{
+
+        carrito.push({
+            ...producto,
+            cantidad: 1
+        });
+
+    }
 
     console.log(carrito);
-
-}
-
-/* ==========================
-   ELIMINAR PRODUCTO
-========================== */
-
-function eliminarProducto(codigo){
-
-}
-
-
-/* ==========================
-   CAMBIAR CANTIDAD
-========================== */
-
-function aumentarCantidad(codigo){
-
-}
-
-
-function disminuirCantidad(codigo){
-
-}
-
-
-/* ==========================
-   TOTALES
-========================== */
-
-function calcularTotales(){
-
-}
-
-
-/* ==========================
-   INTERFAZ
-========================== */
-
-function actualizarPantalla(){
-
-}
-
-
-/* ==========================
-   ENVIAR SOLICITUD
-========================== */
-
-function enviarSolicitud(){
 
 }
