@@ -142,3 +142,15 @@ console.log("LocalStorage antes de iniciar:");
 console.log(localStorage.getItem("carrito"));
 
 iniciarCarrito();
+
+/* ==========================
+   ACTUALIZAR PANTALLA
+========================== */
+
+function actualizarPantalla(productos){
+
+    console.log("Productos para pintar:");
+
+    console.log(productos);
+
+}
