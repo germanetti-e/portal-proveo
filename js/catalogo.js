@@ -9,6 +9,11 @@
 
 const API_URL = "https://script.google.com/macros/s/AKfycbxEoH-PFVJTjR0tdug3EedfioGxxAm1a-Ed1SU4na5qNiuLe_QFl1qaOL_an-C7eXF8bg/exec";
 
+/* ==========================
+   VARIABLES
+========================== */
+
+let catalogo = [];
 
 /* ==========================
    CARGAR CATÁLOGO
@@ -20,11 +25,13 @@ async function cargarCatalogo() {
 
         const respuesta = await fetch(API_URL);
 
-        const productos = await respuesta.json();
+        catalogo = await respuesta.json();
 
-        mostrarProductos(productos);
+        mostrarProductos(catalogo);
 
-    } catch (error) {
+    }
+
+    catch(error){
 
         console.error("Error cargando catálogo:", error);
 
