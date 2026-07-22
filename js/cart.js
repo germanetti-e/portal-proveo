@@ -28,6 +28,8 @@ function agregarProducto(nombreProducto){
         item => item.imagen === nombreProducto
     );
 
+    console.log("Producto encontrado:", productoExistente);
+
     if(productoExistente){
 
         productoExistente.cantidad++;
@@ -41,6 +43,6 @@ function agregarProducto(nombreProducto){
 
     }
 
-    console.log(carrito);
+    console.log("Carrito actualizado:", carrito);
 
 }
