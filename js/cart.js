@@ -149,9 +149,15 @@ iniciarCarrito();
 
 function actualizarPantalla(productos){
 
-    console.log("Productos para pintar:");
+    const contenedor = document.getElementById("productos-carrito");
 
-    console.log(productos);
+    contenedor.innerHTML = "";
+
+    productos.forEach(producto => {
+
+        contenedor.innerHTML += crearProductoCarrito(producto);
+
+    });
 
 }
 
