@@ -219,21 +219,39 @@ function crearProductoCarrito(producto){
 
             <div class="cart-quantity">
 
-                <button>-</button>
+    <button
+        class="btn-restar"
+        data-codigo="${producto.codigo}">
 
-                <span>${producto.cantidad}</span>
+        -
 
-                <button>+</button>
+    </button>
 
-            </div>
+    <span>
+
+        ${producto.cantidad}
+
+    </span>
+
+    <button
+        class="btn-sumar"
+        data-codigo="${producto.codigo}">
+
+        +
+
+    </button>
+
+</div>
 
         </div>
 
-        <button class="delete-product">
+        <button
+    class="delete-product"
+    data-codigo="${producto.codigo}">
 
-            <i class="fa-solid fa-trash"></i>
+    <i class="fa-solid fa-trash"></i>
 
-        </button>
+</button>
 
     </article>
 
