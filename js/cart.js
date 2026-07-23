@@ -154,3 +154,65 @@ function actualizarPantalla(productos){
     console.log(productos);
 
 }
+
+/* ==========================
+   CREAR TARJETA
+========================== */
+
+function crearProductoCarrito(producto){
+
+    return `
+
+    <article class="cart-product">
+
+        <div class="cart-product-image">
+
+            <img
+                src="assets/saboriemos_pets/${producto.imagen}.png"
+                alt="${producto.nombre}">
+
+        </div>
+
+        <div class="cart-product-info">
+
+            <h3>
+
+                ${producto.nombre}
+
+            </h3>
+
+            <p class="cart-product-price">
+
+                $${Number(producto.precio_sin_iva).toLocaleString("es-CO")}
+
+            </p>
+
+            <p class="cart-product-tax">
+
+                + IVA
+
+            </p>
+
+            <div class="cart-quantity">
+
+                <button>-</button>
+
+                <span>${producto.cantidad}</span>
+
+                <button>+</button>
+
+            </div>
+
+        </div>
+
+        <button class="delete-product">
+
+            <i class="fa-solid fa-trash"></i>
+
+        </button>
+
+    </article>
+
+    `;
+
+}
