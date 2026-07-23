@@ -12,6 +12,16 @@
 let carrito = [];
 
 /* ==========================
+   PEDIDO MÍNIMO
+========================== */
+
+function obtenerPedidoMinimo(producto){
+
+    return parseInt(producto.pedido_minimo) || 1;
+
+}
+
+/* ==========================
    CARGAR CARRITO
 ========================== */
 
@@ -45,7 +55,7 @@ function agregarProducto(nombreProducto){
 
     // Obtiene el pedido mínimo del catálogo
     // Funciona con "2", "2 unidades", "1 docena", etc.
-    const minimo = parseInt(producto.pedido_minimo) || 1;
+    const minimo = obtenerPedidoMinimo(producto);
 
     const productoExistente = carrito.find(
         item => item.codigo === producto.codigo
