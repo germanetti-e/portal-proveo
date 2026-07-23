@@ -43,6 +43,10 @@ function agregarProducto(nombreProducto){
         return;
     }
 
+    // Obtiene el pedido mínimo del catálogo
+    // Funciona con "2", "2 unidades", "1 docena", etc.
+    const minimo = parseInt(producto.pedido_minimo) || 1;
+
     const productoExistente = carrito.find(
         item => item.codigo === producto.codigo
     );
@@ -51,13 +55,18 @@ function agregarProducto(nombreProducto){
 
     if(productoExistente){
 
-        productoExistente.cantidad++;
+        // Si ya existe, aumenta según el pedido mínimo
+        productoExistente.cantidad += minimo;
 
     }else{
 
+        // Si es la primera vez, agrega el pedido mínimo
         carrito.push({
+
             codigo: producto.codigo,
-            cantidad: 1
+
+            cantidad: minimo
+
         });
 
     }
@@ -69,7 +78,6 @@ function agregarProducto(nombreProducto){
     );
 
 }
-
 /* ==========================
    LOCAL STORAGE
 ========================== */
