@@ -306,7 +306,15 @@ function activarBotonesCarrito(){
 }
 function sumarProducto(codigo){
 
-    console.log("Sumar:", codigo);
+    const producto = carrito.find(
+        item => item.codigo == codigo
+    );
+
+    producto.cantidad++;
+
+    guardarCarrito();
+
+    construirCarrito();
 
 }
 
