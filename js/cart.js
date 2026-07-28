@@ -456,7 +456,10 @@ function eliminarProducto(codigo){
 
 function actualizarEstadoAbastecimiento(productos){
 
-    // Calcular subtotal
+    // ==========================
+    // SUBTOTAL
+    // ==========================
+
     const subtotal = productos.reduce((total, producto) => {
 
         return total + (
@@ -466,12 +469,26 @@ function actualizarEstadoAbastecimiento(productos){
 
     }, 0);
 
-    // Mostrar subtotal superior
     document.getElementById("status-subtotal").textContent =
         `$${subtotal.toLocaleString("es-CO")}`;
 
-    // Mostrar subtotal inferior
     document.getElementById("summary-total").textContent =
         `$${subtotal.toLocaleString("es-CO")}`;
+
+    // ==========================
+    // BARRA DE PROGRESO
+    // ==========================
+
+    const pedidoMinimo = 100000;
+
+    const envioGratis = 250000;
+
+    let porcentaje =
+        (subtotal / envioGratis) * 100;
+
+    porcentaje = Math.min(porcentaje,100);
+
+    document.getElementById("progress-dot").style.left =
+        `${porcentaje}%`;
 
 }
