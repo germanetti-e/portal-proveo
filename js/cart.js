@@ -176,8 +176,10 @@ function actualizarPantalla(productos){
         contenedor.innerHTML += crearProductoCarrito(producto);
 
     });
-   
-   activarBotonesCarrito();
+
+    activarBotonesCarrito();
+
+    actualizarEstadoAbastecimiento(productos);
 
 }
 
