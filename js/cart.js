@@ -273,10 +273,51 @@ function activarBotonesCarrito(){
 
     const botonesEliminar = document.querySelectorAll(".delete-product");
 
-    console.log("Botones +:", botonesSumar.length);
+    botonesSumar.forEach(boton => {
 
-    console.log("Botones -:", botonesRestar.length);
+        boton.addEventListener("click", () => {
 
-    console.log("Botones eliminar:", botonesEliminar.length);
+            sumarProducto(boton.dataset.codigo);
+
+        });
+
+    });
+
+    botonesRestar.forEach(boton => {
+
+        boton.addEventListener("click", () => {
+
+            restarProducto(boton.dataset.codigo);
+
+        });
+
+    });
+
+    botonesEliminar.forEach(boton => {
+
+        boton.addEventListener("click", () => {
+
+            eliminarProducto(boton.dataset.codigo);
+
+        });
+
+    });
+
+}
+function sumarProducto(codigo){
+
+    console.log("Sumar:", codigo);
+
+}
+
+function restarProducto(codigo){
+
+    console.log("Restar:", codigo);
+
+}
+
+function eliminarProducto(codigo){
+
+    console.log("Eliminar:", codigo);
 
 }
