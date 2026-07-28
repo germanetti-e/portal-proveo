@@ -483,81 +483,89 @@ function actualizarEstadoAbastecimiento(productos){
 
     const envioGratis = 250000;
 
-    let porcentaje =
-        (subtotal / envioGratis) * 100;
+    let porcentaje = (subtotal / envioGratis) * 100;
 
-    porcentaje = Math.min(porcentaje,100);
+    porcentaje = Math.min(porcentaje, 100);
 
     document.getElementById("progress-dot").style.left =
         `${porcentaje}%`;
 
-}
+    // ==========================
+    // MENSAJES
+    // ==========================
 
-// ==========================
-// MENSAJES
-// ==========================
+    const estado = document.getElementById("status-success");
 
-const estado = document.getElementById("status-success");
+    const mensaje = document.getElementById("status-message");
 
-const mensaje = document.getElementById("status-message");
+    // ==========================
+    // MENOR AL PEDIDO MÍNIMO
+    // ==========================
 
-// Pedido menor al mínimo
-if(subtotal < pedidoMinimo){
+    if(subtotal < pedidoMinimo){
 
-    estado.innerHTML = `
-        <i class="fa-solid fa-circle-xmark"></i>
-        <span>
-            Aún no alcanzas el pedido mínimo.
-        </span>
-    `;
+        const faltante = pedidoMinimo - subtotal;
 
-    estado.style.color = "#d32f2f";
+        estado.innerHTML = `
+            <i class="fa-solid fa-circle-xmark"></i>
+            <span>
+                Aún no alcanzas el pedido mínimo.
+            </span>
+        `;
 
-    const faltante = pedidoMinimo - subtotal;
+        estado.style.color = "#d32f2f";
 
-    mensaje.innerHTML = `
-        Te faltan <strong>$${faltante.toLocaleString("es-CO")}</strong>
-        para realizar tu solicitud.
-    `;
+        mensaje.innerHTML = `
+            Te faltan <strong>$${faltante.toLocaleString("es-CO")}</strong>
+            para realizar tu solicitud.
+        `;
 
-}
+    }
 
-// Pedido válido pero sin envío gratis
-else if(subtotal < envioGratis){
+    // ==========================
+    // YA PUEDE COMPRAR
+    // ==========================
 
-    estado.innerHTML = `
-        <i class="fa-solid fa-circle-check"></i>
-        <span>
-            Ya puedes realizar tu solicitud.
-        </span>
-    `;
+    else if(subtotal < envioGratis){
 
-    estado.style.color = "#16a34a";
+        const faltante = envioGratis - subtotal;
 
-    const faltante = envioGratis - subtotal;
+        estado.innerHTML = `
+            <i class="fa-solid fa-circle-check"></i>
+            <span>
+                Ya puedes realizar tu solicitud.
+            </span>
+        `;
 
-    mensaje.innerHTML = `
-        Te faltan <strong>$${faltante.toLocaleString("es-CO")}</strong>
-        para obtener <strong>ENVÍO GRATIS.</strong>
-    `;
+        estado.style.color = "#16a34a";
 
-}
+        mensaje.innerHTML = `
+            Te faltan <strong>$${faltante.toLocaleString("es-CO")}</strong>
+            para obtener <strong>ENVÍO GRATIS.</strong>
+        `;
 
-// Envío gratis
-else{
+    }
 
-    estado.innerHTML = `
-        <i class="fa-solid fa-circle-check"></i>
-        <span>
-            ¡Felicidades! Tu pedido tiene envío GRATIS.
-        </span>
-    `;
+    // ==========================
+    // ENVÍO GRATIS
+    // ==========================
 
-    estado.style.color = "#16a34a";
+    else{
 
-    mensaje.innerHTML = `
-        Tu pedido ya supera los
-        <strong>$250.000</strong>.
-    `;
+        estado.innerHTML = `
+            <i class="fa-solid fa-circle-check"></i>
+            <span>
+                ¡Felicidades! Tu pedido tiene ENVÍO GRATIS.
+            </span>
+        `;
+
+        estado.style.color = "#16a34a";
+
+        mensaje.innerHTML = `
+            Tu pedido ya supera los
+            <strong>$250.000</strong>.
+        `;
+
+    }
 
 }
