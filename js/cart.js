@@ -276,16 +276,20 @@ function crearProductoCarrito(producto){
 
 function obtenerUnidadTexto(producto){
 
-    const cantidad = Number(producto.cantidad);
+    // Validación por si llega un producto inválido
+    if(!producto){
 
-    const unidad = producto.unidad_de_venta.trim();
-
-    // Si es singular
-    if(cantidad === 1){
-
-        return `${cantidad} ${unidad}`;
+        return "0 Unidades";
 
     }
+
+    // Cantidad
+    const cantidad = Number(producto.cantidad || 0);
+
+    // Unidad de venta
+    const unidad = String(
+        producto.unidad_de_venta || "Unidad"
+    ).trim();
 
     // Plurales especiales
     const plurales = {
@@ -307,6 +311,14 @@ function obtenerUnidadTexto(producto){
 
     };
 
+    // Singular
+    if(cantidad === 1){
+
+        return `1 ${unidad}`;
+
+    }
+
+    // Plural
     const unidadPlural = plurales[unidad] || `${unidad}s`;
 
     return `${cantidad} ${unidadPlural}`;
