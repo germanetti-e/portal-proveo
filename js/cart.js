@@ -492,3 +492,72 @@ function actualizarEstadoAbastecimiento(productos){
         `${porcentaje}%`;
 
 }
+
+// ==========================
+// MENSAJES
+// ==========================
+
+const estado = document.getElementById("status-success");
+
+const mensaje = document.getElementById("status-message");
+
+// Pedido menor al mínimo
+if(subtotal < pedidoMinimo){
+
+    estado.innerHTML = `
+        <i class="fa-solid fa-circle-xmark"></i>
+        <span>
+            Aún no alcanzas el pedido mínimo.
+        </span>
+    `;
+
+    estado.style.color = "#d32f2f";
+
+    const faltante = pedidoMinimo - subtotal;
+
+    mensaje.innerHTML = `
+        Te faltan <strong>$${faltante.toLocaleString("es-CO")}</strong>
+        para realizar tu solicitud.
+    `;
+
+}
+
+// Pedido válido pero sin envío gratis
+else if(subtotal < envioGratis){
+
+    estado.innerHTML = `
+        <i class="fa-solid fa-circle-check"></i>
+        <span>
+            Ya puedes realizar tu solicitud.
+        </span>
+    `;
+
+    estado.style.color = "#16a34a";
+
+    const faltante = envioGratis - subtotal;
+
+    mensaje.innerHTML = `
+        Te faltan <strong>$${faltante.toLocaleString("es-CO")}</strong>
+        para obtener <strong>ENVÍO GRATIS.</strong>
+    `;
+
+}
+
+// Envío gratis
+else{
+
+    estado.innerHTML = `
+        <i class="fa-solid fa-circle-check"></i>
+        <span>
+            ¡Felicidades! Tu pedido tiene envío GRATIS.
+        </span>
+    `;
+
+    estado.style.color = "#16a34a";
+
+    mensaje.innerHTML = `
+        Tu pedido ya supera los
+        <strong>$250.000</strong>.
+    `;
+
+}
