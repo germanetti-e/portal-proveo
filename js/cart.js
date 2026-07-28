@@ -318,13 +318,9 @@ function obtenerUnidadTexto(producto){
 
 function activarBotonesCarrito(){
 
-    const botonesSumar = document.querySelectorAll(".btn-sumar");
+    /* -------- SUMAR -------- */
 
-    const botonesRestar = document.querySelectorAll(".btn-restar");
-
-    const botonesEliminar = document.querySelectorAll(".delete-product");
-
-    botonesSumar.forEach(boton => {
+    document.querySelectorAll(".btn-sumar").forEach(boton => {
 
         boton.addEventListener("click", () => {
 
@@ -334,7 +330,9 @@ function activarBotonesCarrito(){
 
     });
 
-    botonesRestar.forEach(boton => {
+    /* -------- RESTAR -------- */
+
+    document.querySelectorAll(".btn-restar").forEach(boton => {
 
         boton.addEventListener("click", () => {
 
@@ -344,7 +342,9 @@ function activarBotonesCarrito(){
 
     });
 
-    botonesEliminar.forEach(boton => {
+    /* -------- ELIMINAR -------- */
+
+    document.querySelectorAll(".delete-product").forEach(boton => {
 
         boton.addEventListener("click", () => {
 
@@ -355,13 +355,26 @@ function activarBotonesCarrito(){
     });
 
 }
+
+/* ==========================
+   SUMAR PRODUCTO
+========================== */
+
 function sumarProducto(codigo){
 
-    const producto = carrito.find(
+    const itemCarrito = carrito.find(
         item => item.codigo == codigo
     );
 
-    producto.cantidad++;
+    const productoCatalogo = catalogo.find(
+        producto => producto.codigo == codigo
+    );
+
+    if(!itemCarrito || !productoCatalogo){
+        return;
+    }
+
+    itemCarrito.cantidad += Number(productoCatalogo.pedido_minimo);
 
     guardarCarrito();
 
@@ -369,14 +382,56 @@ function sumarProducto(codigo){
 
 }
 
+/* ==========================
+   RESTAR PRODUCTO
+========================== */
+
 function restarProducto(codigo){
 
-    console.log("Restar:", codigo);
+    const itemCarrito = carrito.find(
+        item => item.codigo == codigo
+    );
+
+    const productoCatalogo = catalogo.find(
+        producto => producto.codigo == codigo
+    );
+
+    if(!itemCarrito || !productoCatalogo){
+        return;
+    }
+
+    const minimo = Number(productoCatalogo.pedido_minimo);
+
+    if(itemCarrito.cantidad > minimo){
+
+        itemCarrito.cantidad -= minimo;
+
+    }else{
+
+        eliminarProducto(codigo);
+
+        return;
+
+    }
+
+    guardarCarrito();
+
+    construirCarrito();
 
 }
 
+/* ==========================
+   ELIMINAR PRODUCTO
+========================== */
+
 function eliminarProducto(codigo){
 
-    console.log("Eliminar:", codigo);
+    carrito = carrito.filter(
+        item => item.codigo != codigo
+    );
+
+    guardarCarrito();
+
+    construirCarrito();
 
 }
