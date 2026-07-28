@@ -218,8 +218,7 @@ function crearProductoCarrito(producto){
                 + IVA
 
             </p>
-
-            <div class="cart-quantity">
+<div class="cart-quantity">
 
     <button
         class="btn-restar"
@@ -229,17 +228,27 @@ function crearProductoCarrito(producto){
 
     </button>
 
-    <span>
+    <div class="quantity-info">
 
-        ${producto.cantidad}
+        <span class="quantity-text">
 
-    </span>
+            ${obtenerUnidadTexto(producto)}
+
+        </span>
+
+    </div>
 
     <button
         class="btn-sumar"
         data-codigo="${producto.codigo}">
 
         +
+
+    </button>
+
+</div>
+            
+   
 
     </button>
 
@@ -261,6 +270,48 @@ function crearProductoCarrito(producto){
 
 }
 
+/* ==========================
+   TEXTO UNIDAD DE VENTA
+========================== */
+
+function obtenerUnidadTexto(producto){
+
+    const cantidad = Number(producto.cantidad);
+
+    const unidad = producto.unidad_de_venta.trim();
+
+    // Si es singular
+    if(cantidad === 1){
+
+        return `${cantidad} ${unidad}`;
+
+    }
+
+    // Plurales especiales
+    const plurales = {
+
+        "Unidad": "Unidades",
+        "Docena": "Docenas",
+        "Caja": "Cajas",
+        "Bolsa": "Bolsas",
+        "Paquete": "Paquetes",
+        "Bulto": "Bultos",
+        "Display": "Displays",
+        "Rollo": "Rollos",
+        "Caneca": "Canecas",
+        "Galón": "Galones",
+        "Botella": "Botellas",
+        "Frasco": "Frascos",
+        "Lata": "Latas",
+        "Saco": "Sacos"
+
+    };
+
+    const unidadPlural = plurales[unidad] || `${unidad}s`;
+
+    return `${cantidad} ${unidadPlural}`;
+
+}
 /* ==========================
    BOTONES DEL CARRITO
 ========================== */
