@@ -176,6 +176,8 @@ function actualizarPantalla(productos){
         contenedor.innerHTML += crearProductoCarrito(producto);
 
     });
+   
+   activarBotonesCarrito();
 
 }
 
@@ -256,5 +258,25 @@ function crearProductoCarrito(producto){
     </article>
 
     `;
+
+}
+
+/* ==========================
+   BOTONES DEL CARRITO
+========================== */
+
+function activarBotonesCarrito(){
+
+    const botonesSumar = document.querySelectorAll(".btn-sumar");
+
+    const botonesRestar = document.querySelectorAll(".btn-restar");
+
+    const botonesEliminar = document.querySelectorAll(".delete-product");
+
+    console.log("Botones +:", botonesSumar.length);
+
+    console.log("Botones -:", botonesRestar.length);
+
+    console.log("Botones eliminar:", botonesEliminar.length);
 
 }
