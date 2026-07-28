@@ -447,3 +447,29 @@ function eliminarProducto(codigo){
     construirCarrito();
 
 }
+
+/* ==========================
+   ESTADO DE ABASTECIMIENTO
+========================== */
+
+function actualizarEstadoAbastecimiento(productos){
+
+    // Calcular subtotal
+    const subtotal = productos.reduce((total, producto) => {
+
+        return total + (
+            Number(producto.precio_sin_iva) *
+            Number(producto.cantidad)
+        );
+
+    }, 0);
+
+    // Mostrar subtotal superior
+    document.getElementById("status-subtotal").textContent =
+        `$${subtotal.toLocaleString("es-CO")}`;
+
+    // Mostrar subtotal inferior
+    document.getElementById("summary-total").textContent =
+        `$${subtotal.toLocaleString("es-CO")}`;
+
+}
