@@ -181,8 +181,9 @@ function actualizarPantalla(productos){
 
     actualizarEstadoAbastecimiento(productos);
 
-}
+    actualizarContadorCarrito();
 
+}
 /* ==========================
    CREAR TARJETA
 ========================== */
