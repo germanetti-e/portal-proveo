@@ -33,9 +33,13 @@ function cargarCarrito(){
 
         carrito = JSON.parse(carritoGuardado);
 
+    }else{
+
+        carrito = [];
+
     }
 
-    console.log("Carrito cargado:", carrito);
+    return carrito;
 
 }
 
