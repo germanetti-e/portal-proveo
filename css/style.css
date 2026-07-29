@@ -253,6 +253,59 @@ section{
 
 }
 
+/* ==========================
+   CONTADOR DEL CARRITO
+========================== */
+
+.cart-icon{
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+.cart-counter{
+
+    position: absolute;
+
+    top: -6px;
+
+    right: -8px;
+
+    min-width: 18px;
+
+    height: 18px;
+
+    padding: 0 5px;
+
+    border-radius: 999px;
+
+    background: #e53935;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    line-height: 18px;
+
+}
 
 /* =======================================================
    BUSCADOR
