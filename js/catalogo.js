@@ -199,8 +199,9 @@ function crearTarjeta(producto) {
         <div class="product-image">
 
             <img
-                src="assets/saboriemos_pets/${producto.imagen}.png"
-                alt="${producto.nombre}">
+    src="assets/${producto.carpeta_imagen}/${producto.imagen}.png"
+    alt="${producto.nombre}"
+    loading="lazy">
 
         </div>
 
