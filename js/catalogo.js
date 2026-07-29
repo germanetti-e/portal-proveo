@@ -27,19 +27,72 @@ async function cargarCatalogo() {
 
         catalogo = await respuesta.json();
 
-        if (document.getElementById("products")) {
+        // ==========================
+        // SOLO PRODUCTOS ACTIVOS
+        // ==========================
 
-            mostrarProductos(catalogo);
+        catalogo = catalogo.filter(producto =>
+            String(producto.Activo).trim().toUpperCase() === "SI"
+        );
+
+        // ==========================
+        // ORDEN DEL CATÁLOGO
+        // ==========================
+
+        catalogo.sort((a, b) =>
+            Number(a.orden || 9999) - Number(b.orden || 9999)
+        );
+
+        // ==========================
+        // SI EXISTE UNA CATEGORÍA EN LA URL
+        // ==========================
+
+        const parametros = new URLSearchParams(window.location.search);
+
+        const categoria = parametros.get("categoria");
+
+        let productosMostrar = catalogo;
+
+        if (categoria) {
+
+            productosMostrar = catalogo.filter(producto =>
+                producto.categoria === categoria
+            );
+
+            // Cambiar título de la página
+            const titulo = document.getElementById("category-title");
+
+            if (titulo) {
+
+                titulo.textContent = categoria;
+
+            }
+
+            // Cambiar título del navegador
+            document.title = `${categoria} | Proveo`;
+
+            // Cambiar descripción
+            const descripcion = document.getElementById("category-description");
+
+            if (descripcion) {
+
+                descripcion.textContent = `Productos de ${categoria}.`;
+
+            }
 
         }
 
-    } catch(error){
+        if (document.getElementById("products")) {
+
+            mostrarProductos(productosMostrar);
+
+        }
+
+    } catch (error) {
 
         console.error("Error cargando catálogo:", error);
 
     }
-
-}
 
 
 /* ==========================
