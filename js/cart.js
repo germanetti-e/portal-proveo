@@ -87,6 +87,8 @@ function agregarProducto(nombreProducto){
 
     guardarCarrito();
 
+   actualizarContadorCarrito();
+
     console.log(
         JSON.parse(JSON.stringify(carrito))
     );
