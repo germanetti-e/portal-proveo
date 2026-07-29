@@ -44,7 +44,7 @@ async function cargarCatalogo() {
         );
 
         // ==========================
-        // SI EXISTE UNA CATEGORÍA EN LA URL
+        // CATEGORÍA DESDE LA URL
         // ==========================
 
         const parametros = new URLSearchParams(window.location.search);
@@ -59,7 +59,10 @@ async function cargarCatalogo() {
                 producto.categoria === categoria
             );
 
-            // Cambiar título de la página
+            // ==========================
+            // TÍTULO
+            // ==========================
+
             const titulo = document.getElementById("category-title");
 
             if (titulo) {
@@ -68,15 +71,80 @@ async function cargarCatalogo() {
 
             }
 
-            // Cambiar título del navegador
             document.title = `${categoria} | Proveo`;
 
-            // Cambiar descripción
-            const descripcion = document.getElementById("category-description");
+            // ==========================
+            // CONFIGURACIÓN DE CATEGORÍAS
+            // ==========================
 
-            if (descripcion) {
+            const categorias = {
 
-                descripcion.textContent = `Productos de ${categoria}.`;
+                "Novedades y promociones": {
+                    icono: "fa-star",
+                    descripcion: "Descubre nuestras promociones y novedades."
+                },
+
+                "Insumos, empaques y desechables": {
+                    icono: "fa-box",
+                    descripcion: "Todo lo que necesitas para la operación de tu negocio."
+                },
+
+                "Despensa": {
+                    icono: "fa-basket-shopping",
+                    descripcion: "Productos esenciales para tu despensa."
+                },
+
+                "Salsas": {
+                    icono: "fa-bottle-droplet",
+                    descripcion: "Salsas y aderezos."
+                },
+
+                "Condimentos y especias": {
+                    icono: "fa-pepper-hot",
+                    descripcion: "Condimentos y especias para tus preparaciones."
+                },
+
+                "Enlatados y conservas": {
+                    icono: "fa-jar",
+                    descripcion: "Enlatados y conservas."
+                },
+
+                "Mascotas": {
+                    icono: "fa-bone",
+                    descripcion: "Snacks y productos para mascotas."
+                },
+
+                "Bebidas y complementos": {
+                    icono: "fa-mug-hot",
+                    descripcion: "Bebidas y productos complementarios."
+                },
+
+                "Productos de limpieza": {
+                    icono: "fa-pump-soap",
+                    descripcion: "Productos para limpieza e higiene."
+                }
+
+            };
+
+            const datosCategoria = categorias[categoria];
+
+            if (datosCategoria) {
+
+                const descripcion = document.getElementById("category-description");
+
+                if (descripcion) {
+
+                    descripcion.textContent = datosCategoria.descripcion;
+
+                }
+
+                const icono = document.getElementById("category-icon");
+
+                if (icono) {
+
+                    icono.className = `fa-solid ${datosCategoria.icono}`;
+
+                }
 
             }
 
@@ -93,6 +161,8 @@ async function cargarCatalogo() {
         console.error("Error cargando catálogo:", error);
 
     }
+
+}
 
 
 /* ==========================
