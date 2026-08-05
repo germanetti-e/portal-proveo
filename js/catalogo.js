@@ -243,6 +243,8 @@ function crearTarjeta(producto) {
 ========================== */
 
 cargarCatalogo();
+
+actualizarContadorCarrito();
 /* ==========================
    BOTONES AGREGAR
 ========================== */
