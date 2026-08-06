@@ -251,6 +251,31 @@
 
 }
 
+/* NUEVAS CLASES */
+
+.product-highlight{
+
+    color: var(--primary);
+
+    font-weight:700;
+
+}
+
+.product-note{
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+/* =======================================================
+   BOTÓN AGREGAR
+======================================================= */
+
+.add-button{
+}
+
 
 /* =======================================================
    BOTÓN AGREGAR
