@@ -210,8 +210,16 @@ function crearTarjeta(producto) {
             <h2>${producto.nombre}</h2>
 
             <p class="product-price">
-                $ ${Number(producto.precio_sin_iva).toLocaleString("es-CO")}
-            </p>
+
+    $ ${Number(producto.precio_sin_iva).toLocaleString("es-CO")}
+
+    ${
+        Number(producto.iva) > 0
+        ? `<span class="price-tax">+ IVA</span>`
+        : ``
+    }
+
+</p>
 
             <p class="product-unit">
                 Unidad de venta: ${producto.unidad_de_venta}
