@@ -469,24 +469,51 @@ function eliminarProducto(codigo){
 function actualizarEstadoAbastecimiento(productos){
 
     // ==========================
-    // SUBTOTAL
-    // ==========================
+// SUBTOTAL
+// ==========================
 
-    const subtotal = productos.reduce((total, producto) => {
+const subtotal = productos.reduce((total, producto) => {
 
-        return total + (
-            Number(producto.precio_sin_iva) *
-            Number(producto.cantidad)
-        );
+    return total + (
+        Number(producto.precio_sin_iva) *
+        Number(producto.cantidad)
+    );
 
-    }, 0);
+}, 0);
 
-    document.getElementById("status-subtotal").textContent =
-        `$${subtotal.toLocaleString("es-CO")}`;
+// ==========================
+// TOTAL CON IVA
+// ==========================
 
-    document.getElementById("summary-total").textContent =
-        `$${subtotal.toLocaleString("es-CO")}`;
+const totalConIva = productos.reduce((total, producto) => {
 
+    const precio = Number(producto.precio_sin_iva);
+
+    const cantidad = Number(producto.cantidad);
+
+    const iva = Number(producto.iva || 0);
+
+    return total + (
+        precio *
+        (1 + iva / 100) *
+        cantidad
+    );
+
+}, 0);
+
+// ==========================
+// ACTUALIZAR TOTALES
+// ==========================
+
+document.getElementById("status-subtotal").textContent =
+    `$${subtotal.toLocaleString("es-CO")}`;
+
+document.getElementById("summary-total").textContent =
+    `$${subtotal.toLocaleString("es-CO")}`;
+
+document.getElementById("summary-total-iva").textContent =
+    `$${Math.round(totalConIva).toLocaleString("es-CO")}`;
+   
     // ==========================
     // BARRA DE PROGRESO
     // ==========================
@@ -501,6 +528,8 @@ function actualizarEstadoAbastecimiento(productos){
 
     document.getElementById("progress-dot").style.left =
         `${porcentaje}%`;
+
+   }
 
     // ==========================
     // MENSAJES
