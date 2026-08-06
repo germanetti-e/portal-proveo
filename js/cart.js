@@ -151,16 +151,20 @@ async function iniciarCarrito(){
 
     cargarCarrito();
 
-    await cargarCatalogo();
+    // Solo si existe la función cargarCatalogo
+    if (typeof cargarCatalogo === "function") {
 
-    console.log("Catálogo:", catalogo);
+        await cargarCatalogo();
+
+        console.log("Catálogo:", catalogo);
+
+    }
 
     console.log("Carrito:", carrito);
 
     construirCarrito();
 
 }
-
 console.log("LocalStorage antes de iniciar:");
 
 console.log(localStorage.getItem("carrito"));
