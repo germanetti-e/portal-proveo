@@ -529,8 +529,7 @@ document.getElementById("summary-total-iva").textContent =
     document.getElementById("progress-dot").style.left =
         `${porcentaje}%`;
 
-   }
-
+   
     // ==========================
     // MENSAJES
     // ==========================
