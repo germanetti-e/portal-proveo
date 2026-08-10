@@ -67,16 +67,22 @@ function guardarDatos(){
     };
 
 
-    localStorage.setItem(
-        "datosCliente",
-        JSON.stringify(datos)
-    );
+    llocalStorage.setItem(
+    "datosCliente",
+    JSON.stringify(datos)
+);
 
+const mensaje = document.getElementById("mensaje-guardado");
 
-    alert("Tus datos fueron guardados correctamente.");
+mensaje.classList.add("show");
+
+setTimeout(() => {
+
+    window.location.href = "whatsapp.html";
+
+}, 800);
 
 }
-
 
 /* ==========================
    BOTÓN GUARDAR
