@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Revisar solicitud | Proveo
+    </title>
+
+    <meta
+        name="description"
+        content="Revisa tu solicitud de abastecimiento">
+
+    <meta
+        name="theme-color"
+        content="#0B3558">
+
+    <!-- CSS PRINCIPAL -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <!-- CSS WHATSAPP -->
+
+    <link
+        rel="stylesheet"
+        href="css/whatsapp.css">
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header class="header">
+
+    <div class="header-top">
+
+        <button class="icon-button">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+        <a href="index.html">
+
+            <img
+                src="assets/logo/logo_proveo.png"
+                alt="Proveo"
+                class="logo">
+
+        </a>
+
+
+        <a
+            href="cart.html"
+            class="icon-button cart-icon">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span
+                id="cart-counter"
+                class="cart-counter">
+
+                0
+
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ========================= -->
+<!-- VOLVER -->
+<!-- ========================= -->
+
+<section class="back-link">
+
+    <a href="account.html">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Volver a mis datos
+
+    </a>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- CABECERA -->
+<!-- ========================= -->
+
+<section class="whatsapp-header">
+
+    <div class="whatsapp-icon">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </div>
+
+    <div>
+
+        <h1>
+            Revisar solicitud
+        </h1>
+
+        <p>
+            Verifica tus datos y productos antes de enviar tu solicitud.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- DATOS DEL CLIENTE -->
+<!-- ========================= -->
+
+<section class="request-section">
+
+    <h2>
+        Datos de entrega
+    </h2>
+
+    <div
+        id="datos-cliente"
+        class="request-card">
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- PRODUCTOS -->
+<!-- ========================= -->
+
+<section class="request-section">
+
+    <h2>
+        Productos solicitados
+    </h2>
+
+    <div
+        id="productos-solicitados"
+        class="request-card">
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- RESUMEN -->
+<!-- ========================= -->
+
+<section class="request-section">
+
+    <h2>
+        Resumen de solicitud
+    </h2>
+
+    <div class="request-card summary-card">
+
+        <div class="summary-row">
+
+            <span>
+                Subtotal (sin IVA)
+            </span>
+
+            <strong id="request-subtotal">
+                $0
+            </strong>
+
+        </div>
+
+
+        <div class="summary-row total-row">
+
+            <span>
+                Total (IVA incluido)
+            </span>
+
+            <strong id="request-total">
+                $0
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- ENVIAR -->
+<!-- ========================= -->
+
+<section class="request-action">
+
+    <p>
+        Al continuar, se abrirá WhatsApp para enviar tu solicitud al equipo de Proveo.
+    </p>
+
+    <button
+        id="enviar-whatsapp"
+        class="whatsapp-button">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        Enviar solicitud por WhatsApp
+
+    </button>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- MENÚ INFERIOR -->
+<!-- ========================= -->
+
+<nav class="bottom-nav">
+
+    <a href="index.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Inicio
+        </span>
+
+    </a>
+
+
+    <a href="cart.html">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span>
+            Mi abastecimiento
+        </span>
+
+    </a>
+
+
+    <a href="account.html">
+
+        <i class="fa-solid fa-user"></i>
+
+        <span>
+            Mis datos
+        </span>
+
+    </a>
+
+</nav>
+
+
+</div>
+
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script src="js/storage.js"></script>
+
+<script src="js/header.js"></script>
+
+<script src="js/catalogo.js"></script>
+
+<script src="js/whatsapp.js"></script>
+
+
+</body>
+
+</html>
