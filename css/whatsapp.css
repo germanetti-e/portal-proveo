@@ -1,0 +1,254 @@
+/* =======================================================
+   WHATSAPP / REVISIÓN DE SOLICITUD
+======================================================= */
+
+
+/* =======================================================
+   CABECERA
+======================================================= */
+
+.whatsapp-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:10px 20px 25px;
+
+}
+
+.whatsapp-icon{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:18px;
+
+    background:#EAF7EF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.whatsapp-icon i{
+
+    font-size:30px;
+
+    color:#16A34A;
+
+}
+
+.whatsapp-header h1{
+
+    margin-bottom:6px;
+
+    font-size:26px;
+
+    color:var(--primary);
+
+}
+
+.whatsapp-header p{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+    line-height:1.5;
+
+}
+
+
+/* =======================================================
+   SECCIONES
+======================================================= */
+
+.request-section{
+
+    padding:0 20px;
+
+    margin-bottom:22px;
+
+}
+
+.request-section h2{
+
+    margin-bottom:10px;
+
+    font-size:17px;
+
+    color:var(--primary);
+
+}
+
+
+/* =======================================================
+   TARJETAS
+======================================================= */
+
+.request-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #E8ECF2;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+}
+
+
+/* =======================================================
+   RESUMEN
+======================================================= */
+
+.summary-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+}
+
+.summary-row strong{
+
+    color:var(--primary);
+
+    font-size:16px;
+
+}
+
+.total-row{
+
+    padding-top:14px;
+
+    border-top:1px solid #E8ECF2;
+
+}
+
+.total-row strong{
+
+    font-size:20px;
+
+}
+
+
+/* =======================================================
+   BOTÓN WHATSAPP
+======================================================= */
+
+.request-action{
+
+    padding:0 20px 120px;
+
+    text-align:center;
+
+}
+
+.request-action p{
+
+    margin-bottom:15px;
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+    line-height:1.5;
+
+}
+
+.whatsapp-button{
+
+    width:100%;
+
+    min-height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#16A34A;
+
+    color:#FFFFFF;
+
+    font-family:'Montserrat', sans-serif;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    transition:.25s;
+
+}
+
+.whatsapp-button:hover{
+
+    background:#128C3A;
+
+}
+
+.whatsapp-button i{
+
+    font-size:20px;
+
+}
+
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+
+@media (min-width:768px){
+
+    .request-section,
+    .request-action{
+
+        max-width:700px;
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+}
