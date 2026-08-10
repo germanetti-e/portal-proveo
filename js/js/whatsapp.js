@@ -27,7 +27,7 @@ function cargarDatosCliente(){
     if(!datos){
 
         contenedor.innerHTML = `
-        
+
             <p>
                 No encontramos datos guardados.
             </p>
@@ -48,27 +48,27 @@ function cargarDatosCliente(){
 
             <p>
                 <strong>Nombre:</strong>
-                ${datos.nombre}
+                ${datos.nombre || ""}
             </p>
 
             <p>
                 <strong>Empresa:</strong>
-                ${datos.empresa}
+                ${datos.empresa || ""}
             </p>
 
             <p>
                 <strong>WhatsApp:</strong>
-                ${datos.whatsapp}
+                ${datos.whatsapp || ""}
             </p>
 
             <p>
                 <strong>Dirección:</strong>
-                ${datos.direccion}
+                ${datos.direccion || ""}
             </p>
 
             <p>
                 <strong>Tipo de negocio:</strong>
-                ${datos.tipoNegocio}
+                ${datos.tipoNegocio || ""}
             </p>
 
             ${
@@ -78,7 +78,7 @@ function cargarDatosCliente(){
                         <strong>Observaciones:</strong>
                         ${datos.observaciones}
                     </p>
-                  `
+                `
                 : ""
             }
 
