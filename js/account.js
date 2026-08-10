@@ -67,7 +67,7 @@ function guardarDatos(){
     };
 
 
-    llocalStorage.setItem(
+    localStorage.setItem(
     "datosCliente",
     JSON.stringify(datos)
 );
