@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Mis datos | Proveo
+    </title>
+
+    <meta
+        name="description"
+        content="Mis datos de cliente">
+
+    <meta
+        name="theme-color"
+        content="#0B3558">
+
+    <!-- CSS PRINCIPAL -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <!-- CSS DE MIS DATOS -->
+
+    <link
+        rel="stylesheet"
+        href="css/account.css">
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header class="header">
+
+    <div class="header-top">
+
+        <button class="icon-button">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+        <a href="index.html">
+
+            <img
+                src="assets/logo/logo_proveo.png"
+                alt="Proveo"
+                class="logo">
+
+        </a>
+
+
+        <a
+            href="cart.html"
+            class="icon-button cart-icon">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span
+                id="cart-counter"
+                class="cart-counter">
+
+                0
+
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ========================= -->
+<!-- TÍTULO -->
+<!-- ========================= -->
+
+<section class="account-header">
+
+    <div class="account-icon">
+
+        <i class="fa-solid fa-user"></i>
+
+    </div>
+
+    <div>
+
+        <h1>
+            Mis datos
+        </h1>
+
+        <p>
+            Guarda tus datos para agilizar tus solicitudes de abastecimiento.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- FORMULARIO -->
+<!-- ========================= -->
+
+<section class="account-form">
+
+    <div class="form-card">
+
+        <div class="form-group">
+
+            <label for="nombre">
+
+                Nombre
+
+            </label>
+
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Tu nombre"
+                autocomplete="name">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="empresa">
+
+                Empresa / negocio
+
+            </label>
+
+            <input
+                type="text"
+                id="empresa"
+                name="empresa"
+                placeholder="Nombre de tu empresa o negocio"
+                autocomplete="organization">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="whatsapp">
+
+                WhatsApp
+
+            </label>
+
+            <input
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                placeholder="Ej. 300 000 0000"
+                autocomplete="tel">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="direccion">
+
+                Dirección de entrega
+
+            </label>
+
+            <input
+                type="text"
+                id="direccion"
+                name="direccion"
+                placeholder="Dirección donde recibes tus pedidos"
+                autocomplete="street-address">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="tipo-negocio">
+
+                Tipo de negocio
+
+            </label>
+
+            <select
+                id="tipo-negocio"
+                name="tipo-negocio">
+
+                <option value="">
+                    Selecciona una opción
+                </option>
+
+                <option value="Restaurante">
+                    Restaurante
+                </option>
+
+                <option value="Cafetería">
+                    Cafetería
+                </option>
+
+                <option value="Hotel">
+                    Hotel
+                </option>
+
+                <option value="Panadería">
+                    Panadería
+                </option>
+
+                <option value="Tienda">
+                    Tienda
+                </option>
+
+                <option value="Distribuidor">
+                    Distribuidor
+                </option>
+
+                <option value="Otro">
+                    Otro
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="observaciones">
+
+                Observaciones
+
+            </label>
+
+            <textarea
+                id="observaciones"
+                name="observaciones"
+                rows="4"
+                placeholder="Información adicional para tu solicitud"></textarea>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="guardar-datos"
+            class="save-button">
+
+            Guardar mis datos
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- WHATSAPP -->
+<!-- ========================= -->
+
+<a
+    href="https://wa.me/573012754358"
+    class="floating-whatsapp"
+    aria-label="¿Necesitas ayuda?">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+<!-- ========================= -->
+<!-- MENÚ INFERIOR -->
+<!-- ========================= -->
+
+<nav class="bottom-nav">
+
+    <a href="index.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Inicio
+        </span>
+
+    </a>
+
+
+    <a href="cart.html">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span>
+            Mi abastecimiento
+        </span>
+
+    </a>
+
+
+    <a
+        href="account.html"
+        class="active">
+
+        <i class="fa-solid fa-user"></i>
+
+        <span>
+            Mis datos
+        </span>
+
+    </a>
+
+</nav>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script src="js/storage.js"></script>
+
+<script src="js/header.js"></script>
+
+<script src="js/account.js"></script>
+
+
+</body>
+
+</html>
