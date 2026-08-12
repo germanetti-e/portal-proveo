@@ -77,11 +77,13 @@ function agregarProducto(nombreProducto){
         // Si es la primera vez, agrega el pedido mínimo
         carrito.push({
 
-            codigo: producto.codigo,
+    codigo: producto.codigo,
 
-            cantidad: minimo
+    nombre: producto.nombre,
 
-        });
+    cantidad: minimo
+
+});
 
     }
 
