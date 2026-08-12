@@ -231,3 +231,20 @@ function mostrarProductosSolicitud(carrito){
         `$${Math.round(totalConIva).toLocaleString("es-CO")}`;
 
 }
+
+/* ==========================
+   ENVIAR A WHATSAPP
+========================== */
+
+document
+    .getElementById("enviar-whatsapp")
+    .addEventListener("click", () => {
+
+        const numero = "573239445016";
+
+        window.open(
+            `https://wa.me/${numero}`,
+            "_blank"
+        );
+
+    });
