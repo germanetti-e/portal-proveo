@@ -236,15 +236,165 @@ function mostrarProductosSolicitud(carrito){
    ENVIAR A WHATSAPP
 ========================== */
 
+/* ==========================
+   ENVIAR SOLICITUD
+========================== */
+
 document
     .getElementById("enviar-whatsapp")
-    .addEventListener("click", () => {
+    .addEventListener("click", async () => {
 
-        const numero = "573239445016";
-
-        window.open(
-            `https://wa.me/${numero}`,
-            "_blank"
+        const datosCliente = JSON.parse(
+            localStorage.getItem("datosCliente")
         );
+
+        const carrito = JSON.parse(
+            localStorage.getItem("carrito")
+        ) || [];
+
+
+        /* ==========================
+           VALIDAR DATOS
+        ========================== */
+
+        if (!datosCliente) {
+
+            alert(
+                "No encontramos tus datos. Por favor completa Mis datos."
+            );
+
+            return;
+
+        }
+
+
+        if (carrito.length === 0) {
+
+            alert(
+                "No hay productos en tu solicitud."
+            );
+
+            return;
+
+        }
+
+
+        /* ==========================
+           PREPARAR SOLICITUD
+        ========================== */
+
+        const solicitud = {
+
+            nombre:
+                datosCliente.nombre || "",
+
+            empresa:
+                datosCliente.empresa || "",
+
+            whatsapp:
+                datosCliente.whatsapp || "",
+
+            direccion:
+                datosCliente.direccion || "",
+
+            tipoNegocio:
+                datosCliente.tipoNegocio || "",
+
+            observaciones:
+                datosCliente.observaciones || "",
+
+            productos:
+                carrito.map(producto => ({
+
+                    nombre:
+                        producto.nombre || "",
+
+                    cantidad:
+                        Number(producto.cantidad) || 0,
+
+                    unidadDeVenta:
+                        producto.unidad_de_venta || "",
+
+                    precioSinIva:
+                        Number(producto.precioSinIva) || 0,
+
+                    iva:
+                        Number(producto.iva) || 0
+
+                }))
+
+        };
+
+
+        /* ==========================
+           ENVIAR A GOOGLE SHEETS
+        ========================== */
+
+        try {
+
+            const respuesta = await fetch(
+                "https://script.google.com/macros/s/AKfycbxEoH-PFVJTjR0tdug3EedfioGxxAm1a-Ed1SU4na5qNiuLe_QFl1qaOL_an-C7eXF8bg/exec",
+                {
+
+                    method: "POST",
+
+                    body: JSON.stringify(solicitud)
+
+                }
+            );
+
+
+            const resultado =
+                await respuesta.json();
+
+
+            /* ==========================
+               CONFIRMAR REGISTRO
+            ========================== */
+
+            if (!resultado.success) {
+
+                throw new Error(
+                    resultado.error ||
+                    "No se pudo registrar la solicitud."
+                );
+
+            }
+
+
+            console.log(
+                "Solicitud registrada:",
+                resultado.idSolicitud
+            );
+
+
+            /* ==========================
+               ABRIR WHATSAPP
+            ========================== */
+
+            const numero =
+                "573239445016";
+
+            const mensaje =
+                `Hola, quiero realizar la solicitud ${resultado.idSolicitud} de abastecimiento.`;
+
+            window.open(
+                `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`,
+                "_blank"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Error enviando solicitud:",
+                error
+            );
+
+            alert(
+                "No pudimos registrar tu solicitud. Por favor intenta nuevamente."
+            );
+
+        }
 
     });
