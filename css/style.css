@@ -806,3 +806,217 @@ section{
     }
 
 }
+
+/* =======================================================
+   MENÚ HAMBURGUESA
+======================================================= */
+
+.side-menu{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:300px;
+
+    max-width:85%;
+
+    height:100vh;
+
+    background:#FFFFFF;
+
+    z-index:1000;
+
+    transform:translateX(-100%);
+
+    transition:transform .3s ease;
+
+    box-shadow:8px 0 25px rgba(0,0,0,.12);
+
+    overflow-y:auto;
+
+}
+
+
+/* =======================================================
+   MENÚ ABIERTO
+======================================================= */
+
+.side-menu.active{
+
+    transform:translateX(0);
+
+}
+
+
+/* =======================================================
+   CABECERA DEL MENÚ
+======================================================= */
+
+.side-menu-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:22px 20px;
+
+    border-bottom:1px solid #E8ECF2;
+
+}
+
+.side-menu-header h2{
+
+    margin:0;
+
+    font-size:20px;
+
+    color:var(--primary);
+
+}
+
+.menu-close{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#F4F6F8;
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+/* =======================================================
+   ENLACES
+======================================================= */
+
+.side-menu-nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:10px 12px 30px;
+
+}
+
+.side-menu-nav a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 12px;
+
+    border-radius:10px;
+
+    color:#333333;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:.2s;
+
+}
+
+.side-menu-nav a:hover{
+
+    background:#F4F6F8;
+
+    color:var(--primary);
+
+}
+
+.side-menu-nav a i{
+
+    width:22px;
+
+    text-align:center;
+
+    color:var(--primary);
+
+    font-size:16px;
+
+}
+
+.side-menu-nav a span{
+
+    flex:1;
+
+}
+
+
+/* =======================================================
+   SEPARADOR
+======================================================= */
+
+.side-menu-divider{
+
+    height:1px;
+
+    background:#E8ECF2;
+
+    margin:10px 12px;
+
+}
+
+
+/* =======================================================
+   FONDO OSCURO
+======================================================= */
+
+.menu-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.4);
+
+    z-index:999;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+}
+
+.menu-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+/* =======================================================
+   EVITAR SCROLL CON MENÚ ABIERTO
+======================================================= */
+
+body.menu-open{
+
+    overflow:hidden;
+
+}
