@@ -81,7 +81,13 @@ function agregarProducto(nombreProducto){
 
     nombre: producto.nombre,
 
-    cantidad: minimo
+    cantidad: minimo,
+
+    unidad_de_venta: producto.unidad_de_venta,
+
+    precioSinIva: Number(producto.precio_sin_iva) || 0,
+
+    iva: Number(producto.iva) || 0
 
 });
 
