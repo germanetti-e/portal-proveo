@@ -378,10 +378,9 @@ document
             const mensaje =
                 `Hola, quiero realizar la solicitud ${resultado.idSolicitud} de abastecimiento.`;
 
-            window.open(
-                `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`,
-                "_blank"
-            );
+            window.location.href =
+    `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+            
 
 
         } catch (error) {
