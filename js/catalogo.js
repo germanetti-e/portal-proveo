@@ -221,22 +221,8 @@ function crearTarjeta(producto) {
 
 </p>
 
-            <p class="product-unit">
-    Unidad de venta mínima:
-    <span class="product-highlight">
-        ${producto.unidad_de_venta}
-    </span>
-</p>
+         
 
-<p class="product-minimum">
-    Pedido mínimo:
-    <span class="product-highlight">
-        ${producto.pedido_minimo}
-    </span>
-    <span class="product-note">
-        (<i class="fa-solid fa-arrow-up"></i> ver unidad de venta)
-    </span>
-</p>
             <button
                 class="add-button"
                 data-producto="${producto.imagen}">
