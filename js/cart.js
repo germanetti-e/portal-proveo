@@ -8,8 +8,8 @@
    VARIABLES
 ========================== */
 
-
 let carrito = [];
+
 
 /* ==========================
    PEDIDO MÍNIMO
@@ -21,13 +21,15 @@ function obtenerPedidoMinimo(producto){
 
 }
 
+
 /* ==========================
    CARGAR CARRITO
 ========================== */
 
 function cargarCarrito(){
 
-    const carritoGuardado = localStorage.getItem("carrito");
+    const carritoGuardado =
+        localStorage.getItem("carrito");
 
     if(carritoGuardado){
 
@@ -43,6 +45,7 @@ function cargarCarrito(){
 
 }
 
+
 /* ==========================
    AGREGAR PRODUCTO
 ========================== */
@@ -57,15 +60,23 @@ function agregarProducto(nombreProducto){
         return;
     }
 
-    // Obtiene el pedido mínimo del catálogo
-    // Funciona con "2", "2 unidades", "1 docena", etc.
-    const minimo = obtenerPedidoMinimo(producto);
 
-    const productoExistente = carrito.find(
-        item => item.codigo === producto.codigo
+    // Obtiene el pedido mínimo del catálogo
+    const minimo =
+        obtenerPedidoMinimo(producto);
+
+
+    const productoExistente =
+        carrito.find(
+            item => item.codigo === producto.codigo
+        );
+
+
+    console.log(
+        "Producto encontrado:",
+        productoExistente
     );
 
-    console.log("Producto encontrado:", productoExistente);
 
     if(productoExistente){
 
@@ -77,38 +88,56 @@ function agregarProducto(nombreProducto){
         // Si es la primera vez, agrega el pedido mínimo
         carrito.push({
 
-    codigo: producto.codigo,
+            codigo:
+                producto.codigo,
 
-    nombre: producto.nombre,
+            nombre:
+                producto.nombre,
 
-    cantidad: minimo,
+            cantidad:
+                minimo,
 
-    unidad_de_venta: producto.unidad_de_venta,
+            unidad_de_venta:
+                producto.unidad_de_venta,
 
-    precioSinIva: Number(producto.precio_sin_iva) || 0,
+            precioSinIva:
+                Number(
+                    producto.precio_sin_iva
+                ) || 0,
 
-    iva: Number(producto.iva) || 0
+            iva:
+                Number(
+                    producto.iva
+                ) || 0
 
-});
+        });
 
     }
 
+
     guardarCarrito();
 
-   actualizarContadorCarrito();
+    actualizarContadorCarrito();
+
 
     console.log(
-        JSON.parse(JSON.stringify(carrito))
+        JSON.parse(
+            JSON.stringify(carrito)
+        )
     );
 
 }
+
+
 /* ==========================
    LOCAL STORAGE
 ========================== */
 
 function guardarCarrito(){
 
-    console.log("Guardando carrito...");
+    console.log(
+        "Guardando carrito..."
+    );
 
     localStorage.setItem(
         "carrito",
@@ -121,35 +150,49 @@ function guardarCarrito(){
 
 }
 
+
 /* ==========================
    CONSTRUIR CARRITO
 ========================== */
 
 function construirCarrito(){
 
-    const carritoCompleto = carrito.map(item => {
+    const carritoCompleto =
+        carrito.map(item => {
 
-        const producto = catalogo.find(
-            producto => producto.codigo == item.codigo
-        );
+            const producto =
+                catalogo.find(
+                    producto =>
+                        producto.codigo == item.codigo
+                );
 
-        return {
+            return {
 
-            ...producto,
+                ...producto,
 
-            cantidad: item.cantidad
+                cantidad:
+                    item.cantidad
 
-        };
+            };
 
-    });
+        });
 
-    console.log("Carrito completo:");
 
-    console.log(carritoCompleto);
+    console.log(
+        "Carrito completo:"
+    );
 
-   actualizarPantalla(carritoCompleto);
+    console.log(
+        carritoCompleto
+    );
+
+
+    actualizarPantalla(
+        carritoCompleto
+    );
 
 }
+
 
 /* ==========================
    INICIALIZAR
@@ -159,25 +202,44 @@ async function iniciarCarrito(){
 
     cargarCarrito();
 
+
     // Solo si existe la función cargarCatalogo
-    if (typeof cargarCatalogo === "function") {
+    if(
+        typeof cargarCatalogo === "function"
+    ){
 
         await cargarCatalogo();
 
-        console.log("Catálogo:", catalogo);
+        console.log(
+            "Catálogo:",
+            catalogo
+        );
 
     }
 
-    console.log("Carrito:", carrito);
+
+    console.log(
+        "Carrito:",
+        carrito
+    );
+
 
     construirCarrito();
 
 }
-console.log("LocalStorage antes de iniciar:");
 
-console.log(localStorage.getItem("carrito"));
+
+console.log(
+    "LocalStorage antes de iniciar:"
+);
+
+console.log(
+    localStorage.getItem("carrito")
+);
+
 
 iniciarCarrito();
+
 
 /* ==========================
    ACTUALIZAR PANTALLA
@@ -185,23 +247,33 @@ iniciarCarrito();
 
 function actualizarPantalla(productos){
 
-    const contenedor = document.getElementById("productos-carrito");
+    const contenedor =
+        document.getElementById(
+            "productos-carrito"
+        );
 
     contenedor.innerHTML = "";
 
+
     productos.forEach(producto => {
 
-        contenedor.innerHTML += crearProductoCarrito(producto);
+        contenedor.innerHTML +=
+            crearProductoCarrito(producto);
 
     });
 
+
     activarBotonesCarrito();
 
-    actualizarEstadoAbastecimiento(productos);
+    actualizarEstadoAbastecimiento(
+        productos
+    );
 
     actualizarContadorCarrito();
 
 }
+
+
 /* ==========================
    CREAR TARJETA
 ========================== */
@@ -215,11 +287,12 @@ function crearProductoCarrito(producto){
         <div class="cart-product-image">
 
             <img
-    src="assets/${producto.carpeta_imagen}/${producto.imagen}.png"
-    alt="${producto.nombre}"
-    loading="lazy">
+                src="assets/${producto.carpeta_imagen}/${producto.imagen}.png"
+                alt="${producto.nombre}"
+                loading="lazy">
 
         </div>
+
 
         <div class="cart-product-info">
 
@@ -229,62 +302,66 @@ function crearProductoCarrito(producto){
 
             </h3>
 
+
             <p class="cart-product-price">
 
-                $${Number(producto.precio_sin_iva).toLocaleString("es-CO")}
+                $${Number(
+                    producto.precio_sin_iva
+                ).toLocaleString("es-CO")}
 
             </p>
+
 
             <p class="cart-product-tax">
 
                 + IVA
 
             </p>
-<div class="cart-quantity">
 
-    <button
-        class="btn-restar"
-        data-codigo="${producto.codigo}">
 
-        -
+            <div class="cart-quantity">
 
-    </button>
+                <button
+                    class="btn-restar"
+                    data-codigo="${producto.codigo}">
 
-    <div class="quantity-info">
+                    -
 
-        <span class="quantity-text">
+                </button>
 
-            ${obtenerUnidadTexto(producto)}
 
-        </span>
+                <div class="quantity-info">
 
-    </div>
+                    <span class="quantity-text">
 
-    <button
-        class="btn-sumar"
-        data-codigo="${producto.codigo}">
+                        ${producto.cantidad}
 
-        +
+                    </span>
 
-    </button>
+                </div>
 
-</div>
-            
-   
 
-    </button>
+                <button
+                    class="btn-sumar"
+                    data-codigo="${producto.codigo}">
 
-</div>
+                    +
+
+                </button>
+
+            </div>
+
 
         </div>
 
+
         <button
-    class="delete-product"
-    data-codigo="${producto.codigo}">
+            class="delete-product"
+            data-codigo="${producto.codigo}">
 
-    <i class="fa-solid fa-trash"></i>
+            <i class="fa-solid fa-trash"></i>
 
-</button>
+        </button>
 
     </article>
 
@@ -292,60 +369,7 @@ function crearProductoCarrito(producto){
 
 }
 
-/* ==========================
-   TEXTO UNIDAD DE VENTA
-========================== */
 
-function obtenerUnidadTexto(producto){
-
-    // Validación por si llega un producto inválido
-    if(!producto){
-
-        return "0 Unidades";
-
-    }
-
-    // Cantidad
-    const cantidad = Number(producto.cantidad || 0);
-
-    // Unidad de venta
-    const unidad = String(
-        producto.unidad_de_venta || "Unidad"
-    ).trim();
-
-    // Plurales especiales
-    const plurales = {
-
-        "Unidad": "Unidades",
-        "Docena": "Docenas",
-        "Caja": "Cajas",
-        "Bolsa": "Bolsas",
-        "Paquete": "Paquetes",
-        "Bulto": "Bultos",
-        "Display": "Displays",
-        "Rollo": "Rollos",
-        "Caneca": "Canecas",
-        "Galón": "Galones",
-        "Botella": "Botellas",
-        "Frasco": "Frascos",
-        "Lata": "Latas",
-        "Saco": "Sacos"
-
-    };
-
-    // Singular
-    if(cantidad === 1){
-
-        return `1 ${unidad}`;
-
-    }
-
-    // Plural
-    const unidadPlural = plurales[unidad] || `${unidad}s`;
-
-    return `${cantidad} ${unidadPlural}`;
-
-}
 /* ==========================
    BOTONES DEL CARRITO
 ========================== */
@@ -354,41 +378,65 @@ function activarBotonesCarrito(){
 
     /* -------- SUMAR -------- */
 
-    document.querySelectorAll(".btn-sumar").forEach(boton => {
+    document
+        .querySelectorAll(".btn-sumar")
+        .forEach(boton => {
 
-        boton.addEventListener("click", () => {
+            boton.addEventListener(
+                "click",
+                () => {
 
-            sumarProducto(boton.dataset.codigo);
+                    sumarProducto(
+                        boton.dataset.codigo
+                    );
+
+                }
+            );
 
         });
 
-    });
 
     /* -------- RESTAR -------- */
 
-    document.querySelectorAll(".btn-restar").forEach(boton => {
+    document
+        .querySelectorAll(".btn-restar")
+        .forEach(boton => {
 
-        boton.addEventListener("click", () => {
+            boton.addEventListener(
+                "click",
+                () => {
 
-            restarProducto(boton.dataset.codigo);
+                    restarProducto(
+                        boton.dataset.codigo
+                    );
+
+                }
+            );
 
         });
 
-    });
 
     /* -------- ELIMINAR -------- */
 
-    document.querySelectorAll(".delete-product").forEach(boton => {
+    document
+        .querySelectorAll(".delete-product")
+        .forEach(boton => {
 
-        boton.addEventListener("click", () => {
+            boton.addEventListener(
+                "click",
+                () => {
 
-            eliminarProducto(boton.dataset.codigo);
+                    eliminarProducto(
+                        boton.dataset.codigo
+                    );
+
+                }
+            );
 
         });
 
-    });
-
 }
+
 
 /* ==========================
    SUMAR PRODUCTO
@@ -396,25 +444,42 @@ function activarBotonesCarrito(){
 
 function sumarProducto(codigo){
 
-    const itemCarrito = carrito.find(
-        item => item.codigo == codigo
-    );
+    const itemCarrito =
+        carrito.find(
+            item =>
+                item.codigo == codigo
+        );
 
-    const productoCatalogo = catalogo.find(
-        producto => producto.codigo == codigo
-    );
 
-    if(!itemCarrito || !productoCatalogo){
+    const productoCatalogo =
+        catalogo.find(
+            producto =>
+                producto.codigo == codigo
+        );
+
+
+    if(
+        !itemCarrito ||
+        !productoCatalogo
+    ){
+
         return;
+
     }
 
-    itemCarrito.cantidad += Number(productoCatalogo.pedido_minimo);
+
+    itemCarrito.cantidad +=
+        Number(
+            productoCatalogo.pedido_minimo
+        );
+
 
     guardarCarrito();
 
     construirCarrito();
 
 }
+
 
 /* ==========================
    RESTAR PRODUCTO
@@ -422,37 +487,59 @@ function sumarProducto(codigo){
 
 function restarProducto(codigo){
 
-    const itemCarrito = carrito.find(
-        item => item.codigo == codigo
-    );
+    const itemCarrito =
+        carrito.find(
+            item =>
+                item.codigo == codigo
+        );
 
-    const productoCatalogo = catalogo.find(
-        producto => producto.codigo == codigo
-    );
 
-    if(!itemCarrito || !productoCatalogo){
+    const productoCatalogo =
+        catalogo.find(
+            producto =>
+                producto.codigo == codigo
+        );
+
+
+    if(
+        !itemCarrito ||
+        !productoCatalogo
+    ){
+
         return;
+
     }
 
-    const minimo = Number(productoCatalogo.pedido_minimo);
 
-    if(itemCarrito.cantidad > minimo){
+    const minimo =
+        Number(
+            productoCatalogo.pedido_minimo
+        );
+
+
+    if(
+        itemCarrito.cantidad > minimo
+    ){
 
         itemCarrito.cantidad -= minimo;
 
     }else{
 
-        eliminarProducto(codigo);
+        eliminarProducto(
+            codigo
+        );
 
         return;
 
     }
+
 
     guardarCarrito();
 
     construirCarrito();
 
 }
+
 
 /* ==========================
    ELIMINAR PRODUCTO
@@ -460,9 +547,12 @@ function restarProducto(codigo){
 
 function eliminarProducto(codigo){
 
-    carrito = carrito.filter(
-        item => item.codigo != codigo
-    );
+    carrito =
+        carrito.filter(
+            item =>
+                item.codigo != codigo
+        );
+
 
     guardarCarrito();
 
@@ -470,129 +560,223 @@ function eliminarProducto(codigo){
 
 }
 
+
 /* ==========================
    ESTADO DE ABASTECIMIENTO
 ========================== */
 
-function actualizarEstadoAbastecimiento(productos){
+function actualizarEstadoAbastecimiento(
+    productos
+){
 
     // ==========================
-// SUBTOTAL
-// ==========================
+    // SUBTOTAL
+    // ==========================
 
-const subtotal = productos.reduce((total, producto) => {
+    const subtotal =
+        productos.reduce(
+            (total, producto) => {
 
-    return total + (
-        Number(producto.precio_sin_iva) *
-        Number(producto.cantidad)
-    );
+                return total + (
+                    Number(
+                        producto.precio_sin_iva
+                    ) *
+                    Number(
+                        producto.cantidad
+                    )
+                );
 
-}, 0);
+            },
+            0
+        );
 
-// ==========================
-// TOTAL CON IVA
-// ==========================
 
-const totalConIva = productos.reduce((total, producto) => {
+    // ==========================
+    // TOTAL CON IVA
+    // ==========================
 
-    const precio = Number(producto.precio_sin_iva);
+    const totalConIva =
+        productos.reduce(
+            (total, producto) => {
 
-    const cantidad = Number(producto.cantidad);
+                const precio =
+                    Number(
+                        producto.precio_sin_iva
+                    );
 
-    const iva = Number(producto.iva || 0);
+                const cantidad =
+                    Number(
+                        producto.cantidad
+                    );
 
-    return total + (
-        precio *
-        (1 + iva / 100) *
-        cantidad
-    );
+                const iva =
+                    Number(
+                        producto.iva || 0
+                    );
 
-}, 0);
 
-// ==========================
-// ACTUALIZAR TOTALES
-// ==========================
+                return total + (
+                    precio *
+                    (1 + iva / 100) *
+                    cantidad
+                );
 
-document.getElementById("status-subtotal").textContent =
-    `$${subtotal.toLocaleString("es-CO")}`;
+            },
+            0
+        );
 
-document.getElementById("summary-total").textContent =
-    `$${subtotal.toLocaleString("es-CO")}`;
 
-document.getElementById("summary-total-iva").textContent =
-    `$${Math.round(totalConIva).toLocaleString("es-CO")}`;
-   
+    // ==========================
+    // ACTUALIZAR TOTALES
+    // ==========================
+
+    document.getElementById(
+        "status-subtotal"
+    ).textContent =
+        `$${subtotal.toLocaleString("es-CO")}`;
+
+
+    document.getElementById(
+        "summary-total"
+    ).textContent =
+        `$${subtotal.toLocaleString("es-CO")}`;
+
+
+    document.getElementById(
+        "summary-total-iva"
+    ).textContent =
+        `$${Math.round(
+            totalConIva
+        ).toLocaleString("es-CO")}`;
+
+
     // ==========================
     // BARRA DE PROGRESO
     // ==========================
 
-    const pedidoMinimo = 100000;
+    const pedidoMinimo =
+        100000;
 
-    const envioGratis = 250000;
+    const envioGratis =
+        250000;
 
-    let porcentaje = (subtotal / envioGratis) * 100;
 
-    porcentaje = Math.min(porcentaje, 100);
+    let porcentaje =
+        (subtotal / envioGratis) * 100;
 
-    document.getElementById("progress-dot").style.left =
+
+    porcentaje =
+        Math.min(
+            porcentaje,
+            100
+        );
+
+
+    document.getElementById(
+        "progress-dot"
+    ).style.left =
         `${porcentaje}%`;
 
-   
+
     // ==========================
     // MENSAJES
     // ==========================
 
-    const estado = document.getElementById("status-success");
+    const estado =
+        document.getElementById(
+            "status-success"
+        );
 
-    const mensaje = document.getElementById("status-message");
+    const mensaje =
+        document.getElementById(
+            "status-message"
+        );
+
 
     // ==========================
     // MENOR AL PEDIDO MÍNIMO
     // ==========================
 
-    if(subtotal < pedidoMinimo){
+    if(
+        subtotal < pedidoMinimo
+    ){
 
-        const faltante = pedidoMinimo - subtotal;
+        const faltante =
+            pedidoMinimo - subtotal;
+
 
         estado.innerHTML = `
+
             <i class="fa-solid fa-circle-xmark"></i>
+
             <span>
                 Aún no alcanzas el pedido mínimo.
             </span>
+
         `;
 
-        estado.style.color = "#d32f2f";
+
+        estado.style.color =
+            "#d32f2f";
+
 
         mensaje.innerHTML = `
-            Te faltan <strong>$${faltante.toLocaleString("es-CO")}</strong>
+
+            Te faltan
+            <strong>
+                $${faltante.toLocaleString("es-CO")}
+            </strong>
+
             para realizar tu solicitud.
+
         `;
 
     }
+
 
     // ==========================
     // YA PUEDE COMPRAR
     // ==========================
 
-    else if(subtotal < envioGratis){
+    else if(
+        subtotal < envioGratis
+    ){
 
-        const faltante = envioGratis - subtotal;
+        const faltante =
+            envioGratis - subtotal;
+
 
         estado.innerHTML = `
+
             <i class="fa-solid fa-circle-check"></i>
+
             <span>
                 Ya puedes realizar tu solicitud.
             </span>
+
         `;
 
-        estado.style.color = "#16a34a";
+
+        estado.style.color =
+            "#16a34a";
+
 
         mensaje.innerHTML = `
-            Te faltan <strong>$${faltante.toLocaleString("es-CO")}</strong>
-            para obtener <strong>ENVÍO GRATIS.</strong>
+
+            Te faltan
+            <strong>
+                $${faltante.toLocaleString("es-CO")}
+            </strong>
+
+            para obtener
+            <strong>
+                ENVÍO GRATIS.
+            </strong>
+
         `;
 
     }
+
 
     // ==========================
     // ENVÍO GRATIS
@@ -601,22 +785,33 @@ document.getElementById("summary-total-iva").textContent =
     else{
 
         estado.innerHTML = `
+
             <i class="fa-solid fa-circle-check"></i>
+
             <span>
                 ¡Felicidades! Tu pedido tiene ENVÍO GRATIS.
             </span>
+
         `;
 
-        estado.style.color = "#16a34a";
+
+        estado.style.color =
+            "#16a34a";
+
 
         mensaje.innerHTML = `
+
             Tu pedido ya supera los
-            <strong>$250.000</strong>.
+            <strong>
+                $250.000
+            </strong>.
+
         `;
 
     }
 
 }
+
 
 /* ==========================
    CONTADOR DEL CARRITO
@@ -624,18 +819,34 @@ document.getElementById("summary-total-iva").textContent =
 
 function actualizarContadorCarrito(){
 
-    const contador = document.getElementById("cart-counter");
+    const contador =
+        document.getElementById(
+            "cart-counter"
+        );
+
 
     if(!contador) return;
 
-    const carrito = cargarCarrito();
 
-    const total = carrito.reduce((suma, producto) => {
+    const carrito =
+        cargarCarrito();
 
-        return suma + Number(producto.cantidad);
 
-    }, 0);
+    const total =
+        carrito.reduce(
+            (suma, producto) => {
 
-    contador.textContent = total;
+                return suma +
+                    Number(
+                        producto.cantidad
+                    );
+
+            },
+            0
+        );
+
+
+    contador.textContent =
+        total;
 
 }
