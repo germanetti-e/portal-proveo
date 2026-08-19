@@ -200,8 +200,7 @@ function mostrarProductosSolicitud(carrito){
                     </strong>
 
                     <p>
-                        ${cantidad}
-                        ${producto.unidad_de_venta}
+                        Cantidad: ${cantidad}
                     </p>
 
                 </div>
@@ -232,9 +231,6 @@ function mostrarProductosSolicitud(carrito){
 
 }
 
-/* ==========================
-   ENVIAR A WHATSAPP
-========================== */
 
 /* ==========================
    ENVIAR SOLICITUD
@@ -379,8 +375,7 @@ document
                 `Hola, quiero realizar la solicitud ${resultado.idSolicitud} de abastecimiento.`;
 
             window.location.href =
-    `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-            
+                `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
 
         } catch (error) {
