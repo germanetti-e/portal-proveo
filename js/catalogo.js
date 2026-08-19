@@ -220,9 +220,16 @@ function crearTarjeta(producto) {
     }
 
 </p>
+<p class="product-minimum">
 
+        Pedido mínimo:
+        
+        <span class="product-highlight">
+            ${producto.pedido_minimo}
+        </span>
+
+    </p>
          
-
             <button
                 class="add-button"
                 data-producto="${producto.imagen}">
