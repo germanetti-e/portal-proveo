@@ -222,7 +222,7 @@ function crearTarjeta(producto) {
 </p>
 
             <p class="product-unit">
-    Unidad de venta mínimo:
+    Unidad de venta mínima:
     <span class="product-highlight">
         ${producto.unidad_de_venta}
     </span>
