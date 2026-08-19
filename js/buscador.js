@@ -115,9 +115,12 @@ function activarBuscador(){
 
                     resultados.innerHTML += `
 
-                        <div class="search-result">
+                        <div
+                            class="search-result"
+                            data-codigo="${producto.codigo}">
 
-                            <div class="search-result-info">
+                            <div
+                                class="search-result-info search-product-link">
 
                                 <strong>
                                     ${producto.nombre}
@@ -170,11 +173,108 @@ function activarBuscador(){
 
                 boton.addEventListener(
                     "click",
-                    () => {
+                    event => {
+
+                        /*
+                           Evita que el clic
+                           también active el
+                           enlace del producto.
+                        */
+
+                        event.stopPropagation();
+
 
                         agregarProducto(
                             boton.dataset.producto
                         );
+
+                    }
+                );
+
+            });
+
+
+            /* ==========================
+               IR AL PRODUCTO
+            ========================== */
+
+            const productosResultado =
+                resultados.querySelectorAll(
+                    ".search-product-link"
+                );
+
+
+            productosResultado.forEach(resultado => {
+
+                resultado.addEventListener(
+                    "click",
+                    () => {
+
+                        const codigo =
+                            resultado
+                                .closest(".search-result")
+                                .dataset.codigo;
+
+
+                        const producto =
+                            catalogo.find(
+                                item =>
+                                    String(item.codigo) ===
+                                    String(codigo)
+                            );
+
+
+                        if(!producto){
+
+                            return;
+
+                        }
+
+
+                        /*
+                           Si ya estamos en la categoría
+                           del producto, buscamos
+                           directamente la tarjeta.
+                        */
+
+                        const parametros =
+                            new URLSearchParams(
+                                window.location.search
+                            );
+
+                        const categoriaActual =
+                            parametros.get("categoria");
+
+
+                        if(
+                            categoriaActual ===
+                            producto.categoria
+                        ){
+
+                            irAlProducto(
+                                producto.codigo
+                            );
+
+                            return;
+
+                        }
+
+
+                        /*
+                           Si estamos en otra pantalla
+                           o en otra categoría,
+                           vamos primero a la categoría.
+                        */
+
+                        const url =
+                            `categoria.html?categoria=${encodeURIComponent(
+                                producto.categoria
+                            )}&producto=${encodeURIComponent(
+                                producto.codigo
+                            )}`;
+
+
+                        window.location.href = url;
 
                     }
                 );
@@ -205,6 +305,50 @@ function activarBuscador(){
 
         }
     );
+
+}
+
+
+/* ==========================
+   IR AL PRODUCTO
+========================== */
+
+function irAlProducto(codigo){
+
+    const tarjeta =
+        document.querySelector(
+            `[data-producto-codigo="${codigo}"]`
+        );
+
+
+    if(!tarjeta){
+
+        return;
+
+    }
+
+
+    tarjeta.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+
+    tarjeta.classList.add(
+        "search-highlight"
+    );
+
+
+    setTimeout(() => {
+
+        tarjeta.classList.remove(
+            "search-highlight"
+        );
+
+    }, 1800);
 
 }
 
